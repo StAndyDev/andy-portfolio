@@ -1,9 +1,9 @@
 export default function ThemeCustomise() {
 
     return (
-        <div className="customize-theme to-hide">
+        <div className="customize-theme">
             <div className="card fade">
-                <span className="btn-hide-card to-hide">X</span>
+                <span><i className="btn-hide-card">X</i></span>
                 <h3>Customize your view</h3>
                 <p>Manage your theme and color</p>
                 <ul className="customize-list">

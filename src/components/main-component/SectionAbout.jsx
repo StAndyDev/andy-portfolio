@@ -1,6 +1,7 @@
 import SectionTitle from "./SectionTitle";
 import React, { Suspense } from 'react';
 import ButtonDefault from "../button-component/ButtonDefault";
+import PauseOnHover from "../carousel-component/PauseOnHover";
 
 const Scene3D = React.lazy(() => import("../other-component/Scene3D"));   //Async
 export default function SectionAbout() {
@@ -12,20 +13,24 @@ export default function SectionAbout() {
                 <div className="row">
                     <div className="about-content padd-15">
                         <h2>Qui suis je?</h2>
-                        <p className="intro-text">être programmeur pour moi, c'est de la passion, j'avait étudier le base de programmation avec la langage c avant mon cursus universitaire, 
-                            lorsque j'ai étudier en université, j'ai commencé à apprendre le base du web avec html/css et js, puis php et java quand j'ai découvert le developpement desktop,
-                            après avoir vécu plusieures choses en dev desktop, j'ai focalisé sur le dev 
+                        <p className="intro-text" style={{ textAlign: 'left' }}>Je m'appelle <strong>ANDRIANIRINA Sitraka Fiderana</strong>, mais je préfère que l'on m'appelle <strong>Sitraka Andy</strong>.
+                            Ma passion pour la programmation a commencé avant même mes études universitaires, lorsque j'ai appris les bases de la programmation en langage C.
+                            Pendant ma première année à l'université, j'ai étudié le développement web avec HTML, CSS, et JavaScript, puis j'ai continué avec PHP et Java, ce dernier m'ayant permis de découvrir le développement d'applications de bureau.
+
+                            Après, je me suis orienté vers le développement web et ses frameworks. J'ai ensuite élargi mes compétences en explorant les technologie web
+                            et les APIs, l’IoT, l’analyse de données spatiales, l’IA et l’intelligence d’affaires. Aujourd’hui, je me concentre principalement sur le développement web.
                         </p>
-                        {/* <!-- btn --> */}
-                        <ButtonDefault href="#" label="download cv"/>
-                        {/* <!-- social icon --> */}
-                        <ul className="social-icons">
-                            <li><a href="#"><i className="bx bxl-gmail"></i></a></li>
-                            <li><a href="#"><i className="bx bxl-linkedin"></i></a></li>
-                            <li><a href="#"><i className="bx bxl-facebook"></i></a></li>
-                        </ul>
+                        <h2>je suis à l'aise avec :</h2>
+                        
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <PauseOnHover/>
+                        </div>
+                        
+                        <h3>savoir plus sur moi?</h3>
+                        <ButtonDefault href="#" label="download cv" />
                     </div>
                     <div className="sphere-content">
+                        <h2 style={{ textAlign: 'center' }}>Je sais faire</h2>
                         <Suspense fallback={<div>Chargement du rendu...</div>}>
                             <Scene3D />
                         </Suspense>

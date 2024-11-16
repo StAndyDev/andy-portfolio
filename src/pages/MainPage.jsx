@@ -1,9 +1,12 @@
 import '../styles/style.css';
 import React, { useEffect } from 'react';
 import HeaderPage from '../components/main-component/HeaderPage';
+import ThemeCustomise from '../components/main-component/ThemeCustomise';
 import SectionHome from '../components/main-component/SectionHome';
 import SectionAbout from '../components/main-component/SectionAbout';
-import ThemeCustomise from '../components/main-component/ThemeCustomise';
+import SectionServices from '../components/main-component/SectionServices';
+import SectionPortfolio from '../components/main-component/SectionPortfolio';
+import SectionContact from '../components/main-component/SectionContact';
 
 export default function MainPage() {
     useEffect(() => {
@@ -17,30 +20,20 @@ export default function MainPage() {
         const checkChangeTheme = document.getElementById('check-change-mode');
 
         // open modal
-        const openThemeModal = () => {
-            themeModal.style.display = 'grid';
-            updateModalPosition();
-            document.body.style.overflow = "hidden";
+        function openThemeModal(){
+            themeModal.style.visibility = 'visible';
+            themeModal.style.opacity = 1;
         }
 
         // close modal
         const closeThemeModal = (e) => {
-            if (e.target.classList.contains('to-hide')) {
-                themeModal.style.display = 'none';
-                document.body.style.overflow = "";
-            }
+            themeModal.style.visibility = 'hidden';
+            themeModal.style.opacity = 0;
         }
+
         btnTheme.addEventListener('click', openThemeModal);
-        themeModal.addEventListener('click', closeThemeModal);
         btnHideModalCustomize.addEventListener('click', closeThemeModal);
-        // position du modal
-        var scrollPositionY;
-        window.addEventListener('scroll', () => {
-            scrollPositionY = window.scrollY || document.documentElement.scrollTop;
-        });
-        function updateModalPosition() {
-            themeModal.style.top = scrollPositionY + "px";
-        }
+
         // change color primary
         colorPalette.forEach(color => {
             color.addEventListener('click', (e) => {
@@ -113,17 +106,29 @@ export default function MainPage() {
                 navMenu.classList.remove('hide-menu');
             }
         });
+
+        // chargement
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+              document.getElementById('loader').style.display = 'none';
+            }, 200);
+        });
+          
+
+          
+          
     }, []); // Le tableau vide [] signifie que ce code sera exécuté une seule fois, après le premier rendu    
 
     return (
         <div>
+            <div id="loader"></div>
             <HeaderPage />
             <main className="main-content">
                 <SectionHome />
                 <SectionAbout/>
-                {/* <SectionServices/>
+                <SectionServices/>
                 <SectionPortfolio/>
-                <SectionContact/> */}
+                <SectionContact/>
             </main>
             <ThemeCustomise />
         </div>

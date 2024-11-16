@@ -41,7 +41,7 @@ const Scene3D = () => {
             'Langage C', 'Chlorine', '35.453', 17, 3,
             'Git/Github', 'Argon', '39.948', 18, 3,
             'Docker', 'Potassium', '39.948', 1, 4,
-            'HTML', 'Calcium', '40.078', 2, 4,
+            'JQuery', 'JQuery', '40.078', 2, 4,
             'Laravel', 'Scandium', '44.955912', 3, 4,
             'Flask', 'Titanium', '47.867', 4, 4,
             'Swagger', 'Vanadium', '50.9415', 5, 4,
