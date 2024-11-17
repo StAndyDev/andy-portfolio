@@ -3,14 +3,14 @@ export default function ThemeCustomise() {
     return (
         <div className="customize-theme">
             <div className="card fade">
-                <span><i className="btn-hide-card">X</i></span>
-                <h3>Customize your view</h3>
-                <p>Manage your theme and color</p>
+                <span><i className="btn-hide-card bx bx-x"></i></span>
+                <h3 style={{ textAlign: 'center' }}>Customize your view</h3>
+                <p style={{ textAlign: 'center' }}>Manage your theme and color</p>
                 <ul className="customize-list">
                     {/* <!-- theme --> */}
                     <li className="theme">
                         <span>Dark Mode</span>
-                        <input type="checkbox" id="check-change-mode" style={{ display: 'none' }} />
+                        <input type="checkbox" id="check-change-mode" style={{ display: 'none' }}/>
                         <label htmlFor="check-change-mode" className="toggle-btn"></label>
                     </li>
                     {/* <!-- color --> */}

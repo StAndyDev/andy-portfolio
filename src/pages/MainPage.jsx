@@ -91,21 +91,7 @@ export default function MainPage() {
             checkChangeTheme.checked = false;
             darkMode = false;
         }
-        // hide/show menu
-        let navMenu = document.getElementById('nav-menu');
-        let navClose = document.getElementById('nav-close');
-        let navToggle = document.getElementById('nav-toggle');
-
-        //hide
-        navClose.addEventListener('click', () => {
-            navMenu.classList.add('hide-menu');
-        });
-        //show
-        navToggle.addEventListener('click', () => {
-            if (navMenu.classList.contains('hide-menu')) {
-                navMenu.classList.remove('hide-menu');
-            }
-        });
+        
 
         // chargement
         window.addEventListener('load', function() {
@@ -113,6 +99,25 @@ export default function MainPage() {
               document.getElementById('loader').style.display = 'none';
             }, 200);
         });
+        
+        // header scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 75) { // Le seuil de défilement où l'opacité change
+              header.classList.add('scrolled');
+            } else {
+              header.classList.remove('scrolled');
+            }
+        });
+
+        // changer l'icone menu
+        let menuIcon = document.querySelector('#menu-icon');
+        let navBar = document.querySelector('.nav-menu');
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('bx-x');
+            navBar.classList.toggle('active');
+        }
           
 
           

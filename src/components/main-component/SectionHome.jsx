@@ -19,19 +19,17 @@ export default function SectionHome() {
                     </div>
                     {/* <!-- intro --> */}
                     <div className="intro" data-aos="zoom-out-left" data-aos-duration="1000">
-                        <h3>Hello! Welcome to my portfolio, i'm</h3>
+                        <h3>Bonjour ! Bienvenue sur mon portfolio, c'est</h3>
                         <h1>Sitraka AndY</h1>
-                        <h3>a <span className="info-text">" professional developper "</span></h3>
-                        <p className="intro-text">With my expertise and versatility, I'm capable of carrying out application development projects, 
-                            whether web-based or desktop. I am seeking new opportunities to leverage my skills and take on exciting challenges.
-                        </p>
+                        <h3>un <span className="info-text">" développeur professionnel "</span></h3>
+                        <p className="intro-text">Avec mon expertise, je suis en mesure de réaliser des projets de développement d'applications, qu'ils soient web ou desktop. Je suis à la recherche de nouvelles opportunités pour mettre à profit mes compétences et relever des défis stimulants.</p>
                         {/* <!-- btn --> */}
-                        <ButtonDefault href="#" label="contact me"/>
+                        <ButtonDefault href="#" label="contactez-moi"/>
                         {/* <!-- social icon --> */}
                         <ul className="social-icons">
-                            <li data-aos="zoom-in" data-aos-duration="2300"><a href="#"><i className="bx bxl-gmail"></i></a></li>
-                            <li data-aos="zoom-in" data-aos-duration="2600"><a href="#"><i className="bx bxl-linkedin"></i></a></li>
-                            <li data-aos="zoom-in" data-aos-duration="2900"><a href="#"><i className="bx bxl-facebook"></i></a></li>
+                            <li><a href="#home"><i className="bx bxl-gmail"></i></a></li>
+                            <li><a href="#home"><i className="bx bxl-linkedin"></i></a></li>
+                            <li><a href="#home"><i className="bx bxl-facebook"></i></a></li>
                         </ul>
                     </div>
                 </div>

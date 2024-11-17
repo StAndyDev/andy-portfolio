@@ -30,7 +30,7 @@ export default function SectionAbout() {
                         <ButtonDefault href="#" label="download cv" />
                     </div>
                     <div className="sphere-content">
-                        <h2 style={{ textAlign: 'center' }}>Je sais faire</h2>
+                        <h2 style={{ textAlign: 'center' }}>My Skills</h2>
                         <Suspense fallback={<div>Chargement du rendu...</div>}>
                             <Scene3D />
                         </Suspense>
