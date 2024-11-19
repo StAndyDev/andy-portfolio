@@ -7,34 +7,57 @@ const Scene3D = React.lazy(() => import("../other-component/Scene3D"));   //Asyn
 export default function SectionAbout() {
     return (
         <section className="about section" id="about">
+            {/* <!-- section title --> */}
+            <SectionTitle sectionTitle="A PROPOS" />
             <div className="container">
-                {/* <!-- section title --> */}
-                <SectionTitle sectionTitle="About me" />
+                {/* first row */}
                 <div className="row">
+                    {/* about content */}
                     <div className="about-content padd-15">
-                        <h2>Qui suis je?</h2>
-                        <p className="intro-text" style={{ textAlign: 'left' }}>Je m'appelle <strong>ANDRIANIRINA Sitraka Fiderana</strong>, mais je préfère que l'on m'appelle <strong>Sitraka Andy</strong>.
-                            Ma passion pour la programmation a commencé avant même mes études universitaires, lorsque j'ai appris les bases de la programmation en langage C.
-                            Pendant ma première année à l'université, j'ai étudié le développement web avec HTML, CSS, et JavaScript, puis j'ai continué avec PHP et Java, ce dernier m'ayant permis de découvrir le développement d'applications de bureau.
-
-                            Après, je me suis orienté vers le développement web et ses frameworks. J'ai ensuite élargi mes compétences en explorant les technologie web
-                            et les APIs, l’IoT, l’analyse de données spatiales, l’IA et l’intelligence d’affaires. Aujourd’hui, je me concentre principalement sur le développement web.
+                        <h2 style={{ textAlign: 'center' }}>Qui suis je?</h2>
+                        <p className="intro-text">
+                            Je m'appelle ANDRIANIRINA Sitraka Fiderana (sitraka andy &#128512;), étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>,
+                            où je suis actuellement en deuxième année de Master (M2). Je suis à la recherche d'un stage en développement afin de préparer mon mémoire
+                            de fin de cycle, ou bien d'une opportunité professionnelle dans ce domaine &#128522;.
                         </p>
-                        <h2>je suis à l'aise avec :</h2>
-                        
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <PauseOnHover/>
+                        <h2 style={{ textAlign: 'center' }}>Diplôme en informatique</h2>
+                        <div>
+                            <ul className="list-formation">
+                                <li className="formation-item">
+                                    <i className='bx bx-shield-plus'></i>
+                                    <p>2024 | Préparation de Diplôme de Master en Modélisation et Ingéniérie Informatique à l'EMIT.</p>
+                                    <span>recherche d'un stage pour la préparation d'une mémoire de fin d'etude</span>
+                                </li>
+                                <li className="formation-item">
+                                    <i className='bx bx-check-shield'></i>
+                                    <p>2022 | Diplôme de Licence en Génie Logiciel et Système d'Information à l'ISMT.</p>
+                                    <span>stage et obtention de diplôme de licence professionnel avec mention bien</span>
+
+                                </li>
+                                <li className="formation-item">
+                                    <i className='bx bx-check-shield'></i>
+                                    <p>2021 | DTS(Diplôme de technicien supérieur en Informatique) à l'ISMT.</p>
+                                    <span>stage et obtention d'un DTS en développement d'application</span>
+                                </li>
+                            </ul>
+                            <ButtonDefault href="#about" label="telecharger mon cv" boxIconName="bx bx-download" />
                         </div>
-                        
-                        <h3>savoir plus sur moi?</h3>
-                        <ButtonDefault href="#" label="download cv" />
+
                     </div>
+                    {/* sphere content */}
                     <div className="sphere-content">
-                        <h2 style={{ textAlign: 'center' }}>My Skills</h2>
-                        <Suspense fallback={<div>Chargement du rendu...</div>}>
+                        <h2 style={{ textAlign: 'center' }}>Mon univers de compétences</h2>
+                        <Suspense className="rendu-content" fallback={<div>Chargement du rendu...</div>}>
                             <Scene3D />
                         </Suspense>
                     </div>
+                </div>
+            </div>
+            {/* second row */}
+            <div>
+                <h2 style={{ textAlign: 'center' }}>les technologies que j'ai utilisées récemment</h2>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <PauseOnHover />
                 </div>
             </div>
         </section>

@@ -20,11 +20,11 @@ export default function SectionHome() {
                     {/* <!-- intro --> */}
                     <div className="intro" data-aos="zoom-out-left" data-aos-duration="1000">
                         <h3>Bonjour ! Bienvenue sur mon portfolio, c'est</h3>
-                        <h1>Sitraka AndY</h1>
-                        <h3>un <span className="info-text">" développeur professionnel "</span></h3>
-                        <p className="intro-text">Avec mon expertise, je suis en mesure de réaliser des projets de développement d'applications, qu'ils soient web ou desktop. Je suis à la recherche de nouvelles opportunités pour mettre à profit mes compétences et relever des défis stimulants.</p>
+                        <span className='myname'>Sitraka AndY</span>
+                        <h3>un <span className="info-text">" développeur fullstack "</span></h3>
+                        <p className="intro-text">Avec mon expertise, je suis en mesure de réaliser des projets de développement d'applications, qu'ils soient web ou desktop. Et je suis à la recherche de nouvelles opportunités pour mettre à profit mes compétences et relever des défis stimulants.</p>
                         {/* <!-- btn --> */}
-                        <ButtonDefault href="#" label="contactez-moi"/>
+                        <ButtonDefault href="#" label="contactez-moi" boxIconName="bx bx-phone"/>
                         {/* <!-- social icon --> */}
                         <ul className="social-icons">
                             <li><a href="#home"><i className="bx bxl-gmail"></i></a></li>

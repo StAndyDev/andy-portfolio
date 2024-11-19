@@ -4,22 +4,26 @@
 :root {
     --header-height: 2.5rem;
     /* colors */
-    --header-color-light: rgb(235, 232, 245);
+    --header-color-light: rgb(206, 217, 224);
     --header-color-dark: rgb(15, 15, 15);
     --color-white: rgb(245, 245, 245);
+    --color-gray: rgb(136, 137, 143);
     --color-black: rgb(36, 37, 43);
-    --color-light: rgb(240, 238, 250);
+    --color-light: rgb(228, 235, 240);
     --color-blue: rgb(69, 196, 235);
     --color-blue-in-dark: rgb(208, 238, 248);
     --color-blue-shadow-in-light: rgba(69, 196, 235, 0);
     --color-blue-shadow-in-dark: rgba(69, 196, 235, 0.7);
     --color-primary: rgb(230, 77, 97);
     --color-dark: rgb(22, 23, 27);
+    /* color section */
+    --section-color-light-primary: rgb(238, 242, 245);
+    --section-color-dark-primary: rgb(36, 37, 43);
 
     /* font */
     --body-font: 'Poppins', sans-serif;
-    --h1-font-size: 1.8rem;
-    --h2-font-size: 1.25rem;
+    --h1-font-size: 2.4rem;
+    --h2-font-size: 1.4rem;
     --h3-font-size: 1rem;
     --normal-font-size: .938rem;
     --small-font-size: .813rem;
@@ -116,7 +120,8 @@ h3 {
 
 /* ========================== BUTTON ======================= */
 .btn {
-    padding: 0.75rem 2rem;
+    padding: 0.5rem 1.5rem;
+    margin: 0.7rem 0.7rem;
     line-height: 1;
 }
 
@@ -126,8 +131,6 @@ h3 {
 
 .btn-default {
     color: #fff;
-    vertical-align: middle;
-    display: inline-block;
     border-radius: var(--border-radius);
     background-color: var(--color-primary);
     transform: perspective(1px) translateZ(0);
@@ -233,12 +236,13 @@ h3 {
 
 /* =========================== SECTION =============================== */
 /* section title */
-.title-content {
+.section-title-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--m-2-5);
+    margin-top: var(--m-2);
+    margin-bottom: var(--m-2);
 }
 
 .section-title {
@@ -312,6 +316,11 @@ h3 {
     padding-right: var(--m-0-5);
     padding-left: var(--m-0-5);
 }
+.intro .myname{
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--color-primary);
+}
 
 .intro-text {
     padding-top: var(--m-0-5);
@@ -346,29 +355,63 @@ h3 {
     font-size: var(--h3-font-size);
 }
 
-/* ======================== SECTION ABOUT ========================== */
-.about .row {
-    display: inline-flex;
-    gap: 12px;
-    margin-bottom: var(--m-2);
+/* ======================== SECTION ABOUT (A PROPOS) ========================== */
+.about {
+    background-color: var(--section-color-light-primary);
 }
 
+.about .container .row {
+    display: flex;
+}
 .about .row .about-content {
-    max-width: 700px;
-    text-align: center;
-    /* background-color: var(--color-white); */
-    margin-left: var(--m-1-5);
+    max-width: 620px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
+}
+/* row */
+.about .row{
+    display: flex;
+    justify-content: center;
+}
+.list-formation .formation-item {
+    display: grid;
+    grid-template-columns: 1fr 10fr; /* Deux colonnes 1fr et 10fr */
+    grid-template-rows: auto auto; /* Deux lignes de hauteur automatique */
+}
+.formation-item i {
+    grid-column: 1; /* La première colonne */
+    grid-row: 1/3; /* S'étend de la première à la deuxième ligne */
+    font-size: 2.5rem;
+    color: var(--color-blue);
+}
+.formation-item p {
+    grid-column: 2; /* La deuxième colonne */
+    grid-row: 1; /* S'étend de la première à la deuxième ligne */
+    text-align: left;
+}
+.formation-item span {
+    grid-column: 2; /* La deuxième colonne */
+    grid-row: 2; 
+    text-align: left;
+    font-size: 0.7rem;
+    color: var(--color-gray);
 }
 
 .about .row .sphere-content {
     min-width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 /* ======================== SECTION SERVICES ========================== */
 .services .row {
     display: flex;
     justify-content: center;
-    column-gap: 12px;
+    column-gap: 0.5rem;
     flex-wrap: wrap;
 }
 
@@ -421,7 +464,7 @@ h3 {
 }
 
 .work_card {
-    background-color: var(--color-white);
+    background-color: var(--section-color-light-primary);
     padding: 1.25rem;
     border-radius: var(--border-radius);
 }
@@ -554,8 +597,8 @@ h3 {
 .element {
     width: 320px;
     height: 180px;
-    box-shadow: 0px 0px 12px rgba(255, 0, 255, 0.5);
-    border: 1px solid rgba(153, 19, 243, 0.25);
+    box-shadow: 0px 0px 12px rgba(88, 200, 252, 0.5);
+    border: 1px solid rgba(45, 145, 233, 0.25);
     font-family: Helvetica, sans-serif;
     text-align: center;
     line-height: normal;
@@ -730,31 +773,14 @@ input:checked+.toggle-btn::before {
 }
 
 /* ============================ LOADER ============================ */
-#loader {
-    border: 16px solid #f3f3f3;
-    /* Couleur de fond */
-    border-top: 16px solid #3498db;
-    /* Couleur du spinner */
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    animation: spin 2s linear infinite;
+#loader-content {
+    width: 100vw;
+    height: 100vh;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 9999;
-    /* Pour être au-dessus des autres éléments */
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    background-color: var(--color-white);
+    display: grid;
+    place-content: center;
 }
 
 /* ====================================== MEDIA QUERIES ================================*/
@@ -860,10 +886,17 @@ input:checked+.toggle-btn::before {
         column-gap: 1.5rem;
         margin-bottom: var(--m-1);
     }
-
     .social-icons li::before {
         width: 6.5vw;
         height: 7vw;
     }
 
+    /* =================== ABOUT ================= */
+    .about .container .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sphere-content {
+        height: 500px;
+    }
 }

@@ -1,4 +1,3 @@
-import './Scene3D.css';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import TWEEN from 'three/examples/jsm/libs/tween.module.js';
@@ -14,7 +13,7 @@ const Scene3D = () => {
         let controls;
         let renderer;
         let scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 10000);
+        const camera = new THREE.PerspectiveCamera(32, container.clientWidth / container.clientHeight, 0.1, 10000);
         camera.position.x = 4000;
         camera.position.z = 3000;
 
@@ -59,13 +58,14 @@ const Scene3D = () => {
 
         init();
         animate();
-
+        
         function init() {
 
             for (let i = 0; i < table.length; i += 5) {
                 const element = document.createElement('div');
                 element.className = 'element';
-                element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
+                element.style.backgroundColor = 'rgba(69, 196, 235,' + (Math.random() * 0.5 + 0.25) + ')';
+
 
                 const number = document.createElement('div');
                 number.className = 'number';
@@ -117,7 +117,7 @@ const Scene3D = () => {
 
             transform(targets.sphere, 2000);
 
-            // window.addEventListener('resize', onWindowResize);
+            window.addEventListener('resize', onWindowResize);
         }
         // fin init
 
@@ -153,12 +153,12 @@ const Scene3D = () => {
         }
         // fin transform
         
-        // function onWindowResize() {
-        //     camera.aspect = window.innerWidth / window.innerHeight;
-        //     camera.updateProjectionMatrix();
-        //     renderer.setSize(window.innerWidth, window.innerHeight);
-        //     render();
-        // }
+        function onWindowResize() {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            render();
+        }
 
         // Gestion du mouvement de la sphère
         function animate() {

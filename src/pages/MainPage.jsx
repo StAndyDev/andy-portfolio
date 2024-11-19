@@ -1,5 +1,5 @@
 import '../styles/style.css';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import HeaderPage from '../components/main-component/HeaderPage';
 import ThemeCustomise from '../components/main-component/ThemeCustomise';
 import SectionHome from '../components/main-component/SectionHome';
@@ -7,9 +7,12 @@ import SectionAbout from '../components/main-component/SectionAbout';
 import SectionServices from '../components/main-component/SectionServices';
 import SectionPortfolio from '../components/main-component/SectionPortfolio';
 import SectionContact from '../components/main-component/SectionContact';
+import {tailChase} from 'ldrs'
 
 export default function MainPage() {
+    const [colorLoader, setColorLoader] = useState('');
     useEffect(() => {
+        tailChase.register('my-loader');    /*loaders*/
         // -------- Theme customize ---------
         const btnTheme = document.querySelector('#theme-button');
         const themeModal = document.querySelector(".customize-theme");
@@ -53,6 +56,11 @@ export default function MainPage() {
         let colorBlueShadowInDark = rootStyles.getPropertyValue('--color-blue-shadow-in-dark');
         let colorWhite = rootStyles.getPropertyValue('--color-white');
         let colorBlack = rootStyles.getPropertyValue('--color-black');
+        let sectionColorLightPrimary = rootStyles.getPropertyValue('--section-color-light-primary');
+        let sectionColorDarkPrimary = rootStyles.getPropertyValue('--section-color-dark-primary');
+        
+        // color loader
+        setColorLoader(colorBlue);
 
         // theme detection
         // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -78,6 +86,7 @@ export default function MainPage() {
             root.style.setProperty('--color-blue', colorBlueInDark);
             root.style.setProperty('--color-blue-shadow-in-light', colorBlueShadowInDark);
             root.style.setProperty('--color-white', colorBlack);
+            root.style.setProperty('--section-color-light-primary', sectionColorDarkPrimary);
             checkChangeTheme.checked = true;
             darkMode = true;
         }
@@ -88,19 +97,20 @@ export default function MainPage() {
             root.style.setProperty('--color-blue', colorBlue);
             root.style.setProperty('--color-blue-shadow-in-light', colorBlueShadowInLight);
             root.style.setProperty('--color-white', colorWhite);
+            root.style.setProperty('--section-color-light-primary', sectionColorLightPrimary);
             checkChangeTheme.checked = false;
             darkMode = false;
         }
         
 
-        // chargement
+        // loader
         window.addEventListener('load', function() {
             setTimeout(function() {
-              document.getElementById('loader').style.display = 'none';
+                document.getElementById('loader-content').style.display = 'none';
             }, 200);
         });
         
-        // header scroll
+        // header scroll opacity
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 75) { // Le seuil de défilement où l'opacité change
@@ -126,7 +136,13 @@ export default function MainPage() {
 
     return (
         <div>
-            <div id="loader"></div>
+            <div id='loader-content'>
+                <my-loader 
+                    size="65"
+                    speed="1.75"
+                    color={colorLoader}
+                ></my-loader>
+            </div>
             <HeaderPage />
             <main className="main-content">
                 <SectionHome />
