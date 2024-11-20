@@ -1,19 +1,19 @@
 import SectionTitle from "./SectionTitle";
 import React, { Suspense } from 'react';
 import ButtonDefault from "../button-component/ButtonDefault";
-import PauseOnHover from "../carousel-component/PauseOnHover";
+import SwiperCarousel from "../carousel-component/SwiperCarousel";
 
 const Scene3D = React.lazy(() => import("../other-component/Scene3D"));   //Async
 export default function SectionAbout() {
     return (
         <section className="about section" id="about">
             {/* <!-- section title --> */}
-            <SectionTitle sectionTitle="A PROPOS" />
+            <SectionTitle sectionTitle="A PROPOS"/>
             <div className="container">
                 {/* first row */}
                 <div className="row">
                     {/* about content */}
-                    <div className="about-content padd-15">
+                    <div className="about-content padd-15" data-aos="fade-right" data-aos-duration="500" data-aos-offset="200">
                         <h2 style={{ textAlign: 'center' }}>Qui suis je?</h2>
                         <p className="intro-text">
                             Je m'appelle ANDRIANIRINA Sitraka Fiderana (sitraka andy &#128512;), étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>,
@@ -37,7 +37,7 @@ export default function SectionAbout() {
                                 <li className="formation-item">
                                     <i className='bx bx-check-shield'></i>
                                     <p>2021 | DTS(Diplôme de technicien supérieur en Informatique) à l'ISMT.</p>
-                                    <span>stage et obtention d'un DTS en développement d'application</span>
+                                    <span>stage et obtention d'un DTS en développement d'application intranet et internet</span>
                                 </li>
                             </ul>
                             <ButtonDefault href="#about" label="telecharger mon cv" boxIconName="bx bx-download" />
@@ -45,8 +45,9 @@ export default function SectionAbout() {
 
                     </div>
                     {/* sphere content */}
-                    <div className="sphere-content">
+                    <div className="sphere-content" data-aos="fade-left" data-aos-duration="500" data-aos-offset="200">
                         <h2 style={{ textAlign: 'center' }}>Mon univers de compétences</h2>
+                        <span className="info">&#123; tourner la sphère pour explorer &#125;</span>
                         <Suspense className="rendu-content" fallback={<div>Chargement du rendu...</div>}>
                             <Scene3D />
                         </Suspense>
@@ -54,10 +55,10 @@ export default function SectionAbout() {
                 </div>
             </div>
             {/* second row */}
-            <div>
+            <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
                 <h2 style={{ textAlign: 'center' }}>les technologies que j'ai utilisées récemment</h2>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <PauseOnHover />
+                <div style={{ maxWidth: '80%', height: '100%', display: 'flex',  marginTop: '20px'}}>
+                    <SwiperCarousel />
                 </div>
             </div>
         </section>
