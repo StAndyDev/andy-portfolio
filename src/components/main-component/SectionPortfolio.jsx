@@ -2,7 +2,7 @@ import SectionTitle from "./SectionTitle";
 import React, { useEffect, useRef } from 'react';
 import mixitup from "mixitup";  // nous avons utilisés mixitup pour manupiler les dom avec animation
 import ImageTest from '../../assets/images/ANDY-NO_BACKGROUND.png';
-import ImageTest2 from '../../assets/images/dianna_agron.jpg';
+import ImageTest2 from '../../assets/images/gae_test.png';
 
 export default function SectionPortfolio() {
     const containerRef = useRef(null);
@@ -50,7 +50,7 @@ export default function SectionPortfolio() {
                 {/* <!-- section title --> */}
                 <SectionTitle sectionTitle="My Portfolio" />
                 <div className="row">
-                    <div className="work_filters">
+                    <div className="work_filters" data-aos="zoom-in-up" data-aos-duration="500" data-aos-offset="100">
                         <span className="work_item active-work" data-filter="all">Tous</span>
                         <span className="work_item" data-filter=".web">Web</span>
                         <span className="work_item" data-filter=".app">App</span>
@@ -63,7 +63,7 @@ export default function SectionPortfolio() {
                             <img src={ImageTest2} alt="image-test" className="work_img" />
                             <h3 className="work_title">Web Design</h3>
                             <span className="work_button">
-                                Demo
+                                Détails
                                 <i className="work_button-icon">=--</i>
                             </span>
                             <div className="portfolio_item-details">
@@ -189,7 +189,7 @@ export default function SectionPortfolio() {
                     <div className="portfolio_popup-content grid">
                         <span className="portfolio_popup-close"><i>--''--</i></span>
                         <div className="pp_thumbnail">
-                            <img src={ImageTest} alt="" className="portfolio_popup-img" />
+                            <img src={ImageTest2} alt="" className="portfolio_popup-img" />
                         </div>
                         <div className="portfolio_popup-info">
                             <div className="portfolio_popup-subtitle">Featured - <span>Design</span></div>

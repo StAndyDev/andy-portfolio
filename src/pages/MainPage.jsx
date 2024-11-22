@@ -7,20 +7,24 @@ import SectionAbout from '../components/main-component/SectionAbout';
 import SectionServices from '../components/main-component/SectionServices';
 import SectionPortfolio from '../components/main-component/SectionPortfolio';
 import SectionContact from '../components/main-component/SectionContact';
+import FooterPage from '../components/main-component/FooterPage';
+
 import {tailChase} from 'ldrs'
 
 export default function MainPage() {
+
     const [colorLoader, setColorLoader] = useState('');
+
     useEffect(() => {
         tailChase.register('my-loader');    /*loaders*/
         // -------- Theme customize ---------
+        var root = document.querySelector(":root");
         const btnTheme = document.querySelector('#theme-button');
         const themeModal = document.querySelector(".customize-theme");
         const btnHideModalCustomize = document.querySelector(".btn-hide-card");
         const colorPalette = document.querySelectorAll(".color-list .color-item"); //liste des couleurs
-        var root = document.querySelector(":root");
-        var darkMode = false;
         const checkChangeTheme = document.getElementById('check-change-mode');
+        var isDark = false;
 
         // open modal
         function openThemeModal(){
@@ -44,7 +48,7 @@ export default function MainPage() {
                 root.style.setProperty('--color-primary', colorElement);
             });
         });
-        // theme
+        // color theme
         let rootStyles = getComputedStyle(document.documentElement);
         let headerColorLight = rootStyles.getPropertyValue('--header-color-light');
         let headerColorDark = rootStyles.getPropertyValue('--header-color-dark');
@@ -62,23 +66,25 @@ export default function MainPage() {
         // color loader
         setColorLoader(colorBlue);
 
-        // theme detection
-        // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        //     toggleToDark();
+        
 
-        // } else {
-        //     toggleToLight();
-        // }
+        checkChangeTheme.addEventListener('change', changeTheme);
+        
 
         //change theme
-        checkChangeTheme.addEventListener('change', () => {
-            checkChangeTheme.checked ? darkMode = true : darkMode = false;
-            if (darkMode) {
-                toggleToDark();
-            } else {
-                toggleToLight();
-            }
-        });
+        function changeTheme(){
+            isDark? toggleToLight() : toggleToDark();
+        }
+        // theme detection
+        // function themeDetection() {
+        //     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //         toggleToDark();
+    
+        //     } else {
+        //         toggleToLight();
+        //     }
+        // }
+
         function toggleToDark() {
             root.style.setProperty('--header-color-light', headerColorDark);
             root.style.setProperty('--color-light', mainColorLight);
@@ -88,7 +94,7 @@ export default function MainPage() {
             root.style.setProperty('--color-white', colorBlack);
             root.style.setProperty('--section-color-light-primary', sectionColorDarkPrimary);
             checkChangeTheme.checked = true;
-            darkMode = true;
+            isDark = true;         
         }
         function toggleToLight() {
             root.style.setProperty('--header-color-light', headerColorLight);
@@ -99,7 +105,7 @@ export default function MainPage() {
             root.style.setProperty('--color-white', colorWhite);
             root.style.setProperty('--section-color-light-primary', sectionColorLightPrimary);
             checkChangeTheme.checked = false;
-            darkMode = false;
+            isDark = false;  
         }
         
 
@@ -150,8 +156,9 @@ export default function MainPage() {
                 <SectionServices/>
                 <SectionPortfolio/>
                 <SectionContact/>
+                <FooterPage/>
             </main>
-            <ThemeCustomise />
+            <ThemeCustomise/>
         </div>
     );
 }

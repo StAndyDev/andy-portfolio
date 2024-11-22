@@ -1,5 +1,4 @@
 export default function ThemeCustomise() {
-
     return (
         <div className="customize-theme">
             <div className="card fade">

@@ -16,9 +16,9 @@ export default function SectionAbout() {
                     <div className="about-content padd-15" data-aos="fade-right" data-aos-duration="500" data-aos-offset="200">
                         <h2 style={{ textAlign: 'center' }}>Qui suis je?</h2>
                         <p className="intro-text">
-                            Je m'appelle ANDRIANIRINA Sitraka Fiderana (sitraka andy &#128512;), étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>,
-                            où je suis actuellement en deuxième année de Master (M2). Je suis à la recherche d'un stage en développement afin de préparer mon mémoire
-                            de fin de cycle, ou bien d'une opportunité professionnelle dans ce domaine &#128522;.
+                            Je m'appelle ANDRIANIRINA Sitraka Fiderana (sitraka andy &#128512;), étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>.
+                            J'ai récemment terminé mon cursus de Master(M2). En attente de ma soutenance pour l'obtention officielle de mon diplôme, 
+                            je suis activement à la recherche d'une opportunité professionnelle dans le domaine du développement &#128522;.
                         </p>
                         <h2 style={{ textAlign: 'center' }}>Diplôme en informatique</h2>
                         <div>
@@ -26,7 +26,7 @@ export default function SectionAbout() {
                                 <li className="formation-item">
                                     <i className='bx bx-shield-plus'></i>
                                     <p>2024 | Préparation de Diplôme de Master en Modélisation et Ingéniérie Informatique à l'EMIT.</p>
-                                    <span>recherche d'un stage pour la préparation d'une mémoire de fin d'etude</span>
+                                    <span>recherche d'un opportunité professionnel et préparation d'une mémoire de fin d'etude</span>
                                 </li>
                                 <li className="formation-item">
                                     <i className='bx bx-check-shield'></i>
@@ -55,12 +55,12 @@ export default function SectionAbout() {
                 </div>
             </div>
             {/* second row */}
-            <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
+            {/* <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
                 <h2 style={{ textAlign: 'center' }}>les technologies que j'ai utilisées récemment</h2>
                 <div style={{ maxWidth: '80%', height: '100%', display: 'flex',  marginTop: '20px'}}>
                     <SwiperCarousel />
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 }
