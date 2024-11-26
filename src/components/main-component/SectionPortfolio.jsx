@@ -2,7 +2,7 @@ import SectionTitle from "./SectionTitle";
 import React, { useEffect, useRef } from 'react';
 import mixitup from "mixitup";  // nous avons utilisés mixitup pour manupiler les dom avec animation
 import ImageTest from '../../assets/images/ANDY-NO_BACKGROUND.png';
-import ImageTest2 from '../../assets/images/gae_test.png';
+import AOS from 'aos';
 
 export default function SectionPortfolio() {
     const containerRef = useRef(null);
@@ -14,7 +14,14 @@ export default function SectionPortfolio() {
             },
             animation: {
                 duration: 300
+            },
+            callbacks: {
+                onMixEnd: function() {
+                    AOS.refresh();  // Réinitialiser AOS après le filtrage
+                },
+                
             }
+            
         });
 
         // lien actif
@@ -50,17 +57,20 @@ export default function SectionPortfolio() {
                 {/* <!-- section title --> */}
                 <SectionTitle sectionTitle="My Portfolio" />
                 <div className="row">
+                    {/* menu */}
                     <div className="work_filters" data-aos="zoom-in-up" data-aos-duration="500" data-aos-offset="100">
-                        <span className="work_item active-work" data-filter="all">Tous</span>
+                        <span className="work_item active-work" data-filter="all">Tout</span>
                         <span className="work_item" data-filter=".web">Web</span>
-                        <span className="work_item" data-filter=".app">App</span>
-                        <span className="work_item" data-filter=".design">Design</span>
+                        <span className="work_item" data-filter=".app">Desktop</span>
+                        <span className="work_item" data-filter=".design">Mobile</span>
+                        <span className="work_item" data-filter=".autre">Autres</span>
                     </div>
 
-                    <div className="work_conteneur conteneur grid">
+                    {/* conteneur */}
+                    <div className="work_conteneur conteneur grid" data-aos="fade-down" data-aos-duration="500" data-aos-offset="100">
 
                         <div className="work_card app">
-                            <img src={ImageTest2} alt="image-test" className="work_img" />
+                            <img src={ImageTest} alt="image-test" className="work_img" />
                             <h3 className="work_title">Web Design</h3>
                             <span className="work_button">
                                 Détails
@@ -189,7 +199,7 @@ export default function SectionPortfolio() {
                     <div className="portfolio_popup-content grid">
                         <span className="portfolio_popup-close"><i>--''--</i></span>
                         <div className="pp_thumbnail">
-                            <img src={ImageTest2} alt="" className="portfolio_popup-img" />
+                            <img src={ImageTest} alt="" className="portfolio_popup-img" />
                         </div>
                         <div className="portfolio_popup-info">
                             <div className="portfolio_popup-subtitle">Featured - <span>Design</span></div>

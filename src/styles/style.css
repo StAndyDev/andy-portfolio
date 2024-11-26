@@ -543,6 +543,8 @@ h3 {
 .work_img {
     border-radius: .5rem;
     margin-bottom: var(--m-0-5);
+    height: 300px;
+    width: 100%;
 }
 
 .work_title {

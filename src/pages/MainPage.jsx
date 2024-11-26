@@ -1,5 +1,6 @@
 import '../styles/style.css';
 import React, { useState, useEffect } from 'react';
+
 import HeaderPage from '../components/main-component/HeaderPage';
 import ThemeCustomise from '../components/main-component/ThemeCustomise';
 import SectionHome from '../components/main-component/SectionHome';
@@ -9,7 +10,7 @@ import SectionPortfolio from '../components/main-component/SectionPortfolio';
 import SectionContact from '../components/main-component/SectionContact';
 import FooterPage from '../components/main-component/FooterPage';
 
-import {tailChase} from 'ldrs'
+import {tailChase} from 'ldrs';
 
 export default function MainPage() {
 
@@ -17,6 +18,7 @@ export default function MainPage() {
 
     useEffect(() => {
         tailChase.register('my-loader');    /*loaders*/
+
         // -------- Theme customize ---------
         var root = document.querySelector(":root");
         const btnTheme = document.querySelector('#theme-button');
@@ -136,8 +138,6 @@ export default function MainPage() {
         }
           
 
-          
-          
     }, []); // Le tableau vide [] signifie que ce code sera exécuté une seule fois, après le premier rendu    
 
     return (

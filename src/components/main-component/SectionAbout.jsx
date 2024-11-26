@@ -55,12 +55,12 @@ export default function SectionAbout() {
                 </div>
             </div>
             {/* second row */}
-            {/* <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
+            <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
                 <h2 style={{ textAlign: 'center' }}>les technologies que j'ai utilisées récemment</h2>
                 <div style={{ maxWidth: '80%', height: '100%', display: 'flex',  marginTop: '20px'}}>
                     <SwiperCarousel />
                 </div>
-            </div> */}
+            </div>
         </section>
     );
 }
