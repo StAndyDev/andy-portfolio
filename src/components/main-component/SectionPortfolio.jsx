@@ -4,12 +4,97 @@ import mixitup from "mixitup";  // nous avons utilisés mixitup pour manupiler l
 import AOS from 'aos';  // c juste pour le callbacks
 import PortfolioCard from "./PortfolioCard";
 
-import ImagePortfolio from '../../assets/images/Annotation 2024-11-26 220135.png';
-import ImageUfBot from '../../assets/images/uf-bot_image.png';
-import ImageGae from '../../assets/images/gae_image.png';
-import ImageGescompta from '../../assets/images/gescompta-icon.png';
-import ImageGaeWeb from '../../assets/images/gae_web.png';
-import ImageAndroyOLAP from '../../assets/images/entrepot.png';
+import ImagePortfolio_1 from '../../assets/images/Annotation 2024-11-26 220135.png';
+import ImageUfBot_1 from '../../assets/images/uf-bot_image.png';
+import ImageGae_1 from '../../assets/images/gae_image.png';
+import ImageGescompta_1 from '../../assets/images/gescompta-icon.png';
+import ImageGaeWeb_1 from '../../assets/images/gae_web.png';
+import ImageAndroyOLAP_1 from '../../assets/images/entrepot.png';
+
+// portfolio techno list
+export const projectList = [
+    { 
+        id: 1, 
+        workType : "web",
+        image : [ImagePortfolio_1],
+        altImg : "andy portfolio",
+        workTitle : "MY PORTFOLIO",
+        workSubtitle : "Andy portfolio v1",
+        text : " La premier version de mon portfolio sur lequel j'ai débuté à utiliser React pour la première fois, et ça c'est ma deuxième utilisation de framework front-end après angular.",
+        listeTechno: ["React", "ThreeJS", "HTML5", "CSS3"]
+    },
+    { 
+        id: 2,
+        workType : "web",
+        image : [ImageUfBot_1],
+        altImg : "uf-bot",
+        workTitle : "UF-BOT",
+        workSubtitle : "chatbot de l'université de F/tsoa",
+        text : " Un chatbot pour une quête d'information, ce projet me permet de collaborer avec mon collegue, mon responsabilité est d'occupé la côté front-end et aussi la contribution à la création du modèle d'IA.",
+        listeTechno : ["Django", "JS", "Bootstrap", "TensorFlow"]
+    },
+    { 
+        id: 3,
+        workType : "desktop",
+        image : [ImageGae_1],
+        altImg : "gae_img",
+        workTitle : "G.A.E",
+        workSubtitle : "gestion des autorisations d'enseigner",
+        text : " Une application desktop avec une interface moderne conçu pour gerer la migration de données excel vers une base de données MySQL et gerer plusieurs gestion sur l'autorisations d'enseignements.",
+        listeTechno: ["javaSE", "SWING/AWT", "MySQL", "XML"]
+    },
+    { 
+        id: 4,
+        workType : "desktop",
+        image : [ImageGescompta_1],
+        altImg : "gescompta_img",
+        workTitle : "GESCOMPTA",
+        workSubtitle : "gestion de comptabilité administratif",
+        text : "Une application simple et robuste gerant les matières entrant et sortant plus particulièremnt dans un service administratif et capable des gerer aussi de comptabilisé les soldes par ans.",
+        listeTechno: ["javaSE", "SWING/AWT", "HSQL"]
+    },
+    { 
+        id: 5,
+        workType : "web",
+        image : [ImageGaeWeb_1],
+        altImg : "gae_web img",
+        workTitle : "G.A.E Web",
+        workSubtitle : "gestion d'autorisation d'enseigner web",
+        text : " une version web de l'application de gestion d'autorisation d'enseigner ",
+        listeTechno: ["JavaEE", "JPA", "JBOSS", "MySQL"]
+    },
+    { 
+        id: 6,
+        workType : "mobile",
+        image : [],
+        altImg : null,
+        workTitle : "NOTE-IT",
+        workSubtitle : "block note",
+        text : "une application de bloc note simple qui peut être utiliser par plusieurs appareil.",
+        listeTechno: ["Ionic", "Angular", "Typescript", "Django", "RestFramework", "SQLite"]
+    },
+    { 
+        id: 7,
+        workType : "web",
+        image : [],
+        altImg : null,
+        workTitle : "Gestion de Billet",
+        workSubtitle : "Gestion de billet de transport",
+        text : "une application qui permet de gerer les réservation de voyages etc.",
+        listeTechno: ["Flask", "Bootstrap", "JS", "MySQL"]
+    },
+    { 
+        id: 8,
+        workType : "autres",
+        image : [ImageAndroyOLAP_1],
+        altImg : "androy olap",
+        workTitle : "OLAP",
+        workSubtitle : "entrepot de données",
+        text : "une version web de l'application de gestion d'autorisation d'enseigner.",
+        listeTechno: ["OpenStat", "PowerBI", "SpagoBI", "Talend", "PostgreSQL"]
+    }
+  ];
+  
 
 export default function SectionPortfolio() {
     const containerRef = useRef(null);
@@ -41,15 +126,7 @@ export default function SectionPortfolio() {
 
     }, []);
 
-    // portfolio techno list items
-    const technoPortfolio = ["React", "ThreeJS", "HTML5", "CSS3"];
-    const technoUfBot = ["Django", "JS", "Bootstrap", "TensorFlow"];
-    const technoGae = ["javaSE", "SWING/AWT", "MySQL", "XML"];
-    const technoGescompta = ["javaSE", "SWING/AWT", "HSQL"];
-    const technoGaeWeb = ["JavaEE", "JPA", "JBOSS", "MySQL"];
-    const technoNoteIt = ["Ionic", "Angular", "Typescript", "Django", "RestFramework", "SQLite"];
-    const technoGestionBillet = ["Flask", "Bootstrap", "JS", "MySQL"];
-    const technoAndroyOLAP = ["OpenStat", "PowerBI", "SpagoBI", "Talend", "PostgreSQL"];
+
 
     return (
         <section ref={containerRef} className="portfolio section" id="portfolio">
@@ -68,94 +145,19 @@ export default function SectionPortfolio() {
 
                     {/* ====== conteneur ======= */}
                     <div className="work_conteneur conteneur grid" data-aos="fade-down" data-aos-duration="1000" data-aos-offset="100">
-
-                            {/* ANDY PORTF */}
+                        
+                        {projectList.map((proj) => (
                             <PortfolioCard
-                                to="/details"   //link
-                                workType={"web"}
-                                image={ImagePortfolio}
-                                altImg="andy portfolio"
-                                workTitle={"MY PORTFOLIO"}
-                                workSubtitle={"Andy portfolio v1"}
-                                text={" La premier version de mon portfolio sur lequel j'ai débuté à utiliser React pour la première fois, et ça c'est ma deuxième utilisation de framework front-end après angular."}
-                                listeTechno={technoPortfolio}
+                                to={"project/details/" + proj.id}   //link
+                                workType={proj.workType}
+                                image={proj.image[0]}
+                                altImg={proj.altImg}
+                                workTitle={proj.workTitle}
+                                workSubtitle={proj.workSubtitle}
+                                text={proj.text}
+                                listeTechno={proj.listeTechno}
                             />
-                            {/* UF-BOT */}
-                            <PortfolioCard
-                                to="/details/2"   //link
-                                workType={"web"}
-                                image={ImageUfBot}
-                                altImg="uf-bot"
-                                workTitle={"UF-BOT"}
-                                workSubtitle={"chatbot de l'université de F/tsoa"}
-                                text={" Un chatbot pour une quête d'information, ce projet me permet de collaborer avec mon collegue, mon responsabilité est d'occupé la côté front-end et aussi la contribution à la création du modèle d'IA."}
-                                listeTechno={technoUfBot}
-                            />
-                            {/* GAE */}
-                            <PortfolioCard
-                            to="/details/2"
-                                workType={"desktop"}
-                                image={ImageGae}
-                                altImg="gae_img"
-                                workTitle={"G.A.E"}
-                                workSubtitle={"gestion des autorisations d'enseigner"}
-                                text={" Une application desktop avec une interface moderne conçu pour gerer la migration de données excel vers une base de données MySQL et gerer plusieurs gestion sur l'autorisations d'enseignements "}
-                                listeTechno={technoGae}
-                            />
-                            {/* GESCOMPTA */}
-                            <PortfolioCard
-                            to="/details/2"
-                                workType={"desktop"}
-                                image={ImageGescompta}
-                                altImg="gescompta_img"
-                                workTitle={"GESCOMPTA"}
-                                workSubtitle={"gestion de comptabilité administratif"}
-                                text={" Une application simple et robuste gerant les matières entrant et sortant plus particulièremnt dans un service administratif et capable des gerer aussi de comptabilisé les soldes par ans "}
-                                listeTechno={technoGescompta}
-                            />
-
-                            {/* GAE WEB */}
-                            <PortfolioCard
-                            to="/details/2"
-                                workType={"web"}
-                                image={ImageGaeWeb}
-                                altImg="gae_web img"
-                                workTitle={"G.A.E Web"}
-                                workSubtitle={"gestion d'autorisation d'enseigner web"}
-                                text={" une version web de l'application de gestion d'autorisation d'enseigner "}
-                                listeTechno={technoGaeWeb}
-                            />
-
-                            {/* NoteIt App */}
-                            <PortfolioCard
-                            to="/details/2"
-                                workType={"mobile"}
-                                workTitle={"NOTE-IT"}
-                                workSubtitle={"block note"}
-                                text={" une application de bloc note simple qui peut être utiliser par plusieurs appareil "}
-                                listeTechno={technoNoteIt}
-                            />
-
-                            {/* Gestion de Billet de transport */}
-                            <PortfolioCard
-                            to="/details/2"
-                                workType={"web"}
-                                workTitle={"Gestion de Billet"}
-                                workSubtitle={"Gestion de billet de transport"}
-                                text={" une application qui permet de gerer les réservation de voyages etc "}
-                                listeTechno={technoGestionBillet}
-                            />
-                            {/* ANDROY CUBE OLAP */}
-                            <PortfolioCard
-                            to="/details/2"
-                                workType={"autres"}
-                                image={ImageAndroyOLAP}
-                                altImg="androy olap"
-                                workTitle={"OLAP"}
-                                workSubtitle={"entrepot de données"}
-                                text={" une version web de l'application de gestion d'autorisation d'enseigner "}
-                                listeTechno={technoAndroyOLAP}
-                            />
+                        ))}
 
                     </div>
                     

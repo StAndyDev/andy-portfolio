@@ -1,3 +1,5 @@
 .portfolio-details-row {
     height: 100vh;
+    display: grid;
+    place-content: center;
 }
