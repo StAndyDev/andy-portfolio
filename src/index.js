@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MainPage from './pages/MainPage';
 import reportWebVitals from './reportWebVitals';
+import MainPage from './pages/MainPage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PortfolioDetailsPage from './pages/PortfolioDetailsPage';
+import MainContentPage from './pages/MainContentPage';
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* il faut imbriquer les autres routes sous MainPage */}
+        <Route path="/" element={<MainPage />} >
+          <Route index element={<MainContentPage />} />
+          <Route path="/details" element={<PortfolioDetailsPage />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MainPage />
+    <App />
   </React.StrictMode>
 );
 

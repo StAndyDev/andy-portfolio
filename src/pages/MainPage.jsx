@@ -1,16 +1,11 @@
 import '../styles/style.css';
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import HeaderPage from '../components/main-component/HeaderPage';
 import ThemeCustomise from '../components/main-component/ThemeCustomise';
-import SectionHome from '../components/main-component/SectionHome';
-import SectionAbout from '../components/main-component/SectionAbout';
-import SectionServices from '../components/main-component/SectionServices';
-import SectionPortfolio from '../components/main-component/SectionPortfolio';
-import SectionContact from '../components/main-component/SectionContact';
 import FooterPage from '../components/main-component/FooterPage';
 
-import {tailChase} from 'ldrs';
+import { tailChase } from 'ldrs';
 
 export default function MainPage() {
 
@@ -29,7 +24,7 @@ export default function MainPage() {
         var isDark = false;
 
         // open modal
-        function openThemeModal(){
+        function openThemeModal() {
             themeModal.style.visibility = 'visible';
             themeModal.style.opacity = 1;
         }
@@ -64,24 +59,24 @@ export default function MainPage() {
         let colorBlack = rootStyles.getPropertyValue('--color-black');
         let sectionColorLightPrimary = rootStyles.getPropertyValue('--section-color-light-primary');
         let sectionColorDarkPrimary = rootStyles.getPropertyValue('--section-color-dark-primary');
-        
+
         // color loader
         setColorLoader(colorBlue);
 
-        
+
 
         checkChangeTheme.addEventListener('change', changeTheme);
-        
+
 
         //change theme
-        function changeTheme(){
-            isDark? toggleToLight() : toggleToDark();
+        function changeTheme() {
+            isDark ? toggleToLight() : toggleToDark();
         }
         // theme detection
         // function themeDetection() {
         //     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         //         toggleToDark();
-    
+
         //     } else {
         //         toggleToLight();
         //     }
@@ -96,7 +91,7 @@ export default function MainPage() {
             root.style.setProperty('--color-white', colorBlack);
             root.style.setProperty('--section-color-light-primary', sectionColorDarkPrimary);
             checkChangeTheme.checked = true;
-            isDark = true;         
+            isDark = true;
         }
         function toggleToLight() {
             root.style.setProperty('--header-color-light', headerColorLight);
@@ -107,24 +102,24 @@ export default function MainPage() {
             root.style.setProperty('--color-white', colorWhite);
             root.style.setProperty('--section-color-light-primary', sectionColorLightPrimary);
             checkChangeTheme.checked = false;
-            isDark = false;  
+            isDark = false;
         }
-        
+
 
         // loader
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 document.getElementById('loader-content').style.display = 'none';
             }, 200);
         });
-        
+
         // header scroll opacity
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const header = document.querySelector('.header');
             if (window.scrollY > 75) { // Le seuil de défilement où l'opacité change
-              header.classList.add('scrolled');
+                header.classList.add('scrolled');
             } else {
-              header.classList.remove('scrolled');
+                header.classList.remove('scrolled');
             }
         });
 
@@ -136,29 +131,26 @@ export default function MainPage() {
             menuIcon.classList.toggle('bx-x');
             navBar.classList.toggle('active');
         }
-          
 
-    }, []); // Le tableau vide [] signifie que ce code sera exécuté une seule fois, après le premier rendu    
+
+    }, []);
 
     return (
-        <div>
-            <div id='loader-content'>
-                <my-loader 
-                    size="65"
-                    speed="1.75"
-                    color={colorLoader}
-                ></my-loader>
+        
+            <div>
+                <div id='loader-content'>
+                    <my-loader
+                        size="65"
+                        speed="1.75"
+                        color={colorLoader}
+                    ></my-loader>
+                </div>
+                <HeaderPage />
+                <main className="main-content">
+                    <Outlet />
+                </main>
+                <FooterPage />
+                <ThemeCustomise />
             </div>
-            <HeaderPage />
-            <main className="main-content">
-                <SectionHome />
-                <SectionAbout/>
-                <SectionServices/>
-                <SectionPortfolio/>
-                <SectionContact/>
-                <FooterPage/>
-            </main>
-            <ThemeCustomise/>
-        </div>
     );
 }
