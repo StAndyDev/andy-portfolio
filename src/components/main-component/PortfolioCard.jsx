@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import defaultWorkImage from '../../assets/images/image_empty.png';
 
-export default function PortfolioCard({ to, workType, image, altImg, workTitle, workSubtitle, text, listeTechno }) {
+export default function PortfolioCard({ to, workType, image={defaultWorkImage}, altImg='Pas d"image', workTitle, workSubtitle, text, listeTechno }) {
     return (
         <div className={"work_card " + workType}>
             <div className="img_content">
@@ -28,10 +28,10 @@ export default function PortfolioCard({ to, workType, image, altImg, workTitle, 
 }
 
 // default value
-PortfolioCard.defaultProps = {
-    image: defaultWorkImage,
-    altImg: 'Pas d"image',
-};
+// PortfolioCard.defaultProps = {
+//     image: defaultWorkImage,
+//     altImg: 'Pas d"image',
+// };
 
 // validation
 PortfolioCard.propTypes = {

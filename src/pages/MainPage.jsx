@@ -1,9 +1,7 @@
 import '../styles/style.css';
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import HeaderPage from '../components/main-component/HeaderPage';
-import ThemeCustomise from '../components/main-component/ThemeCustomise';
-import FooterPage from '../components/main-component/FooterPage';
+
 
 import { tailChase } from 'ldrs';
 
@@ -109,7 +107,7 @@ export default function MainPage() {
         // loader
         window.addEventListener('load', function () {
             setTimeout(function () {
-                document.getElementById('loader-content').style.display = 'none';
+                document.querySelector('.loader-content').style.display = 'none';
             }, 200);
         });
 
@@ -138,19 +136,14 @@ export default function MainPage() {
     return (
         
             <div>
-                <div id='loader-content'>
+                <div className='loader-content'>
                     <my-loader
                         size="65"
                         speed="1.75"
                         color={colorLoader}
                     ></my-loader>
                 </div>
-                <HeaderPage />
-                <main className="main-content">
-                    <Outlet />
-                </main>
-                <FooterPage />
-                <ThemeCustomise />
+                <Outlet /> {/* MainParentPage, NotFound  */}
             </div>
     );
 }

@@ -13,7 +13,7 @@ import ImageAndroyOLAP_1 from '../../assets/images/entrepot.png';
 
 // portfolio techno list
 export const projectList = [
-    { 
+    {   // andy portfolio
         id: 1, 
         workType : "web",
         image : [ImagePortfolio_1],
@@ -23,7 +23,7 @@ export const projectList = [
         text : " La premier version de mon portfolio sur lequel j'ai débuté à utiliser React pour la première fois, et ça c'est ma deuxième utilisation de framework front-end après angular.",
         listeTechno: ["React", "ThreeJS", "HTML5", "CSS3"]
     },
-    { 
+    {   // uf-bot
         id: 2,
         workType : "web",
         image : [ImageUfBot_1],
@@ -33,7 +33,7 @@ export const projectList = [
         text : " Un chatbot pour une quête d'information, ce projet me permet de collaborer avec mon collegue, mon responsabilité est d'occupé la côté front-end et aussi la contribution à la création du modèle d'IA.",
         listeTechno : ["Django", "JS", "Bootstrap", "TensorFlow"]
     },
-    { 
+    {   // gae
         id: 3,
         workType : "desktop",
         image : [ImageGae_1],
@@ -43,7 +43,7 @@ export const projectList = [
         text : " Une application desktop avec une interface moderne conçu pour gerer la migration de données excel vers une base de données MySQL et gerer plusieurs gestion sur l'autorisations d'enseignements.",
         listeTechno: ["javaSE", "SWING/AWT", "MySQL", "XML"]
     },
-    { 
+    {   // gescompta
         id: 4,
         workType : "desktop",
         image : [ImageGescompta_1],
@@ -53,7 +53,7 @@ export const projectList = [
         text : "Une application simple et robuste gerant les matières entrant et sortant plus particulièremnt dans un service administratif et capable des gerer aussi de comptabilisé les soldes par ans.",
         listeTechno: ["javaSE", "SWING/AWT", "HSQL"]
     },
-    { 
+    {   // gae web
         id: 5,
         workType : "web",
         image : [ImageGaeWeb_1],
@@ -63,27 +63,27 @@ export const projectList = [
         text : " une version web de l'application de gestion d'autorisation d'enseigner ",
         listeTechno: ["JavaEE", "JPA", "JBOSS", "MySQL"]
     },
-    { 
+    {   // note-it
         id: 6,
         workType : "mobile",
         image : [],
-        altImg : null,
+        altImg : "",
         workTitle : "NOTE-IT",
         workSubtitle : "block note",
         text : "une application de bloc note simple qui peut être utiliser par plusieurs appareil.",
         listeTechno: ["Ionic", "Angular", "Typescript", "Django", "RestFramework", "SQLite"]
     },
-    { 
+    {   // gestion de billet
         id: 7,
         workType : "web",
         image : [],
-        altImg : null,
+        altImg : "",
         workTitle : "Gestion de Billet",
         workSubtitle : "Gestion de billet de transport",
         text : "une application qui permet de gerer les réservation de voyages etc.",
         listeTechno: ["Flask", "Bootstrap", "JS", "MySQL"]
     },
-    { 
+    {   // androy olap
         id: 8,
         workType : "autres",
         image : [ImageAndroyOLAP_1],
@@ -148,6 +148,7 @@ export default function SectionPortfolio() {
                         
                         {projectList.map((proj) => (
                             <PortfolioCard
+                                key = {proj.id}
                                 to={"project/details/" + proj.id}   //link
                                 workType={proj.workType}
                                 image={proj.image[0]}
