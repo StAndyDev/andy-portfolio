@@ -7,24 +7,52 @@ import PortfolioDetailsPage from './pages/PortfolioDetailsPage';
 import MainContentPage from './pages/MainContentPage';
 import NotFound from './pages/errors/NotFound';
 import MainParentPage from './pages/MainParentPage';
-
-
+import './styles/style.css';
+import { useState, useEffect } from 'react';
+import { tailChase } from 'ldrs';
 export default function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* il faut imbriquer les autres routes sous MainPage */}
 
-        <Route path="/" element={<MainPage />}>
+  const [colorLoader, setColorLoader] = useState('');
+
+  useEffect(() => {
+    tailChase.register('my-loader');    /*loaders*/
+    let rootStyles = getComputedStyle(document.documentElement);
+    let colorBlue = rootStyles.getPropertyValue('--color-blue');
+    // loader
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.querySelector('.loader-content').style.display = 'none';
+      }, 200);
+    });
+    // color loader
+    setColorLoader(colorBlue);
+
+  }, []);
+
+  return (
+
+    <div>
+      <div className='loader-content'>
+        <my-loader
+          size="65"
+          speed="1.75"
+          color={colorLoader}
+        ></my-loader>
+      </div>
+
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainPage />}>
             <Route path="" element={<MainParentPage />}>
               <Route path="" element={<MainContentPage />} />
               <Route path="/project/details/:cardId" element={<PortfolioDetailsPage />} />
             </Route>
             <Route path="/*" element={<NotFound />} />
-        </Route>
-        
-      </Routes>
-    </Router>
+          </Route>
+        </Routes>
+      </Router>
+    </div>
+
   );
 }
 
