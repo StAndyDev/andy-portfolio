@@ -74,7 +74,10 @@ const NestedList = () => {
 
             {/* Catégorie WEB */}
             <ListItem onClick={toggleWebCateg}>
-                <ListItemText primary="WEB" />
+                <ListItemIcon sx={{ marginRight: -3 }}>
+                    <i className={'icon_project_categ bx bx-folder'}></i>
+                </ListItemIcon>
+                <ListItemText primary="WEB" style={{cursor: 'pointer'}}/>
                 <i className={`bx ${openWebCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openWebCateg} timeout="auto" unmountOnExit>
@@ -83,7 +86,7 @@ const NestedList = () => {
                         (techno.workType === "web")? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
-                                    <i className={'icon_project_categ bx bx-globe'}></i>
+                                    <i className={'icon_project_categ_item bx bx-globe'}></i>
                                 </ListItemIcon>
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
@@ -97,7 +100,10 @@ const NestedList = () => {
 
             {/* Catégorie DESKTOP */}
             <ListItem onClick={toggleDesktopCateg}>
-                <ListItemText primary="DESKTOP" />
+                <ListItemIcon sx={{ marginRight: -3 }}>
+                    <i className={'icon_project_categ bx bx-folder'}></i>
+                </ListItemIcon>
+                <ListItemText primary="DESKTOP" style={{cursor: 'pointer'}}/>
                 <i className={`bx ${openDesktopCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openDesktopCateg} timeout="auto" unmountOnExit>
@@ -106,7 +112,7 @@ const NestedList = () => {
                         (techno.workType === "desktop")? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
-                                    <i className={'icon_project_categ bx bx-desktop'}></i>
+                                    <i className={'icon_project_categ_item bx bx-desktop'}></i>
                                 </ListItemIcon>
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
@@ -120,7 +126,10 @@ const NestedList = () => {
 
             {/* Catégorie MOBILE */}
             <ListItem onClick={toggleMobileCateg}>
-                <ListItemText primary="MOBILE" />
+                <ListItemIcon sx={{ marginRight: -3 }}>
+                    <i className={'icon_project_categ bx bx-folder'}></i>
+                </ListItemIcon>
+                <ListItemText primary="MOBILE" style={{cursor: 'pointer'}}/>
                 <i className={`bx ${openMobileCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openMobileCateg} timeout="auto" unmountOnExit>
@@ -129,7 +138,7 @@ const NestedList = () => {
                         (techno.workType === "mobile")? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
-                                    <i className={'icon_project_categ bx bx-mobile'}></i>
+                                    <i className={'icon_project_categ_item bx bx-mobile'}></i>
                                 </ListItemIcon>
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
@@ -143,7 +152,10 @@ const NestedList = () => {
 
             {/* Catégorie AUTRES */}
             <ListItem onClick={toggleAutresCateg}>
-                <ListItemText primary="AUTRES" />
+                <ListItemIcon sx={{ marginRight: -3 }}>
+                    <i className={'icon_project_categ bx bx-folder'}></i>
+                </ListItemIcon>
+                <ListItemText primary="AUTRES" style={{cursor: 'pointer'}}/>
                 <i className={`bx ${openAutresCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openAutresCateg} timeout="auto" unmountOnExit>
@@ -152,7 +164,7 @@ const NestedList = () => {
                         (techno.workType === "autres")? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
-                                    <i className={'icon_project_categ bx bx-folder'}></i>
+                                    <i className={'icon_project_categ_item bx bx-cube'}></i>
                                 </ListItemIcon>
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
@@ -263,7 +275,7 @@ export default function PortfolioDetailsPage() {
                             </ul>
                             {/* btn */}
                             <div className="btn_to_github_conteneur">
-                                <a href='' className="btn_link_to_github">
+                                <a href='https://github.com' className="btn_link_to_github">
                                     <i className='bx bxl-github' style={{ fontSize: '24px' }}></i>
                                     <p>voir sur github</p>
                                 </a>

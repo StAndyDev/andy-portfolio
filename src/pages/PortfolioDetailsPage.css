@@ -1,10 +1,13 @@
 .portfolio-details {
     min-height: 100vh;
+    background-color: var(--color-light);
 }
 .portfolio-details .container{
-    padding-top: 3rem;
+    padding: 3rem 3rem 3rem 3rem;
     display: flex;
     flex-direction: column;
+    background-color: var(--color-white);
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.3);
 }
 /* title */
 .portfolio-details .title-content {
@@ -57,19 +60,19 @@
     border-radius: var(--border-radius);
 }
 .portfolio-details .project-details {
-    width: 65%;
+    width: 75%;
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-}
-.project-details .work_techno span{
-    background-color: var(--color-white);
 }
 .project-details .carousel-conteneur {
     /* height: 300px; */
     display: flex;
     align-items: center;
     background-color: var(--color-white);
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 45px rgba(0, 0, 0, 0.3);
 }
 .carousel-conteneur .swiper-slide {
     display: flex;
@@ -81,12 +84,16 @@
 }
 /* --------- right menu ------------*/
 .portfolio-details .project-categ {
-    width: 25%;
-    background-color: var(--color-white);
+    width: 20%;
+    /* background-color: var(--color-white); */
     border-radius: var(--border-radius);
 }
-
 .project-categ .icon_project_categ {
+    color: var(--color-blue);
+    font-size: 20px;
+    cursor: pointer;
+}
+.project-categ .icon_project_categ_item {
     color: var(--color-primary);
     font-size: 20px;
 }
