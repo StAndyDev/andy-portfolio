@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-
+export const root = null;
 export default function HeaderPage() {
-
     useEffect(() => {
 
         // -------- Theme customize ---------
@@ -12,7 +11,7 @@ export default function HeaderPage() {
         const colorPalette = document.querySelectorAll(".color-list .color-item"); //liste des couleurs
         const checkChangeTheme = document.getElementById('check-change-mode');
         var isDark = false;
-
+        
         // open modal
         function openThemeModal() {
             themeModal.style.visibility = 'visible';

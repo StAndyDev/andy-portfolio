@@ -10,10 +10,9 @@ import MainParentPage from './pages/MainParentPage';
 import './styles/style.css';
 import { useState, useEffect } from 'react';
 import { tailChase } from 'ldrs';
+
 export default function App() {
-
   const [colorLoader, setColorLoader] = useState('');
-
   useEffect(() => {
     tailChase.register('my-loader');    /*loaders*/
     let rootStyles = getComputedStyle(document.documentElement);
@@ -26,11 +25,9 @@ export default function App() {
     });
     // color loader
     setColorLoader(colorBlue);
-
   }, []);
 
   return (
-
     <div>
       <div className='loader-content'>
         <my-loader
