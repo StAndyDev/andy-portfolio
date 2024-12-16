@@ -10,6 +10,7 @@ import MainParentPage from './pages/MainParentPage';
 import './styles/style.css';
 import { useState, useEffect } from 'react';
 import { tailChase } from 'ldrs';
+import { ThemeProvider } from './ThemeContext'; // pour appliquer notre theme
 
 export default function App() {
   const [colorLoader, setColorLoader] = useState('');
@@ -56,7 +57,9 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

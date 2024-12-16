@@ -17,6 +17,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 let index;  //index du json
 
+// image carousel
 const Carousel = () => {
     return (
         <>
@@ -33,7 +34,7 @@ const Carousel = () => {
                 //     delay: 3000,
                 //     disableOnInteraction: false,
                 // }}
-                autoplay={false}
+                autoplay={true}
                 loop={true}
                 className="mySwiper"
             >
@@ -41,14 +42,17 @@ const Carousel = () => {
                 {projectList[index].image.map((sary, i) => (
                     <SwiperSlide
                         key={projectList[index].image[i]}>
-                        <img
-                            src={sary}
-                            alt={projectList[index].altImg}
-                            loading="lazy"
-                        />
-                        <div className="overlay"></div>
-
-                        <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            <div>
+                                <img
+                                    src={sary}
+                                    alt={projectList[index].altImg}
+                                    loading="lazy"
+                                />
+                                <div className="overlay"></div>
+                                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                <div className='slide-description'>migration des données du fichier xml vers excel</div>
+                            </div>
+                            
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -56,7 +60,7 @@ const Carousel = () => {
     );
 };
 
-// -------------- NESTED LIST -----------------
+// -------------- NESTED LIST (project list) -----------------
 const NestedList = () => {
 
     const [openWebCateg, setOpenWebCateg] = useState(false);
@@ -78,7 +82,7 @@ const NestedList = () => {
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
                 <ListItemText primary="WEB" style={{cursor: 'pointer'}}/>
-                <i className={`bx ${openWebCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
+                <i className={`chevron bx ${openWebCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openWebCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
@@ -104,7 +108,7 @@ const NestedList = () => {
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
                 <ListItemText primary="DESKTOP" style={{cursor: 'pointer'}}/>
-                <i className={`bx ${openDesktopCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
+                <i className={`chevron bx ${openDesktopCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openDesktopCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
@@ -130,7 +134,7 @@ const NestedList = () => {
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
                 <ListItemText primary="MOBILE" style={{cursor: 'pointer'}}/>
-                <i className={`bx ${openMobileCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
+                <i className={`chevron bx ${openMobileCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openMobileCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
@@ -156,7 +160,7 @@ const NestedList = () => {
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
                 <ListItemText primary="AUTRES" style={{cursor: 'pointer'}}/>
-                <i className={`bx ${openAutresCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
+                <i className={`chevron bx ${openAutresCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openAutresCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
@@ -208,13 +212,13 @@ export default function PortfolioDetailsPage() {
                 <div>
                     <SectionTitle sectionTitle="Details Projet" />
                 </div>
-                <div className='title-content'>
+                <div className='title-content' data-aos="fade-right">
                     <span className='second-title'>type : {projectList[index].workType} | projectID : {projectList[index].id}</span>
                     <span className='first-title'>{projectList[index].workTitle} <span className='first-subtitle'>({projectList[index].workSubtitle})</span></span>
                 </div>
                 <div className="row">
                     <div className='project-details'>
-                        <div className='carousel-conteneur'>
+                        <div className='carousel-conteneur' data-aos="fade-right">
                             <Carousel />
                         </div>
                         <div>
@@ -285,9 +289,10 @@ export default function PortfolioDetailsPage() {
                     </div>
 
                     {/* menu */}
-                    <div className='project-categ'>
+                    <fieldset className='project-categ'>
+                        <legend>Tous les projets</legend>
                         <NestedList />
-                    </div>
+                    </fieldset>
 
                 </div>
             </div>

@@ -174,7 +174,7 @@ const Scene3D = () => {
             renderer.render(scene, camera);
         }
 
-        // enlever le premier div
+        // enlever le premier div qui a causé une duplication
         const problem = document.querySelector('.sphere-content div div:first-of-type');
         if(problem){
             problem.style.display = 'none';

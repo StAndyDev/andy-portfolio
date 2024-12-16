@@ -33,6 +33,7 @@ export default function SectionContact() {
                             <a href="" data-aos="fade-up" data-aos-duration="1000"  data-aos-offset="100"> <i className="bx bxl-whatsapp"></i> </a>
                             <a href="" data-aos="fade-up" data-aos-duration="500"  data-aos-offset="100"> <i className="bx bxl-github"></i> </a>
                         </div>
+                        <div>MERCI POUR LE VISITE !!!</div>
                     </div>
                 </div>
             </div>

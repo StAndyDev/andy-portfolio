@@ -25,8 +25,18 @@ export const projectList = [
         text: " La premier version de mon portfolio sur lequel j'ai débuté à utiliser React pour la première fois, et ça c'est ma deuxième utilisation de framework front-end après angular.",
         listeTechno: ["React", "ThreeJS", "HTML5", "CSS3"]
     },
-    {   // uf-bot
+    {   // i-kandra back-end
         id: 2,
+        workType: "web",
+        image: [],
+        altImg: "i-kandra image",
+        workTitle: "I-KANDRA BACKEND",
+        workSubtitle: "back-end",
+        text: " La premier version de mon portfolio sur lequel j'ai débuté à utiliser React pour la première fois, et ça c'est ma deuxième utilisation de framework front-end après angular.",
+        listeTechno: ["React", "ThreeJS", "HTML5", "CSS3"]
+    },
+    {   // uf-bot
+        id: 3,
         workType: "web",
         image: [ImageUfBot_1],
         altImg: "uf-bot",
@@ -36,7 +46,7 @@ export const projectList = [
         listeTechno: ["Django", "JS", "Bootstrap", "TensorFlow"]
     },
     {   // gae
-        id: 3,
+        id: 4,
         workType: "desktop",
         image: [ImageGae_1],
         altImg: "gae_img",
@@ -46,7 +56,7 @@ export const projectList = [
         listeTechno: ["javaSE", "SWING/AWT", "MySQL", "XML"]
     },
     {   // gescompta
-        id: 4,
+        id: 5,
         workType: "desktop",
         image: [ImageGescompta_1],
         altImg: "gescompta_img",
@@ -56,7 +66,7 @@ export const projectList = [
         listeTechno: ["javaSE", "SWING/AWT", "HSQL"]
     },
     {   // gae web
-        id: 5,
+        id: 6,
         workType: "web",
         image: [ImageGaeWeb_1],
         altImg: "gae_web img",
@@ -66,7 +76,7 @@ export const projectList = [
         listeTechno: ["JavaEE", "JPA", "JBOSS", "MySQL"]
     },
     {   // note-it
-        id: 6,
+        id: 7,
         workType: "mobile",
         image: [],
         altImg: "",
@@ -76,7 +86,7 @@ export const projectList = [
         listeTechno: ["Ionic", "Angular", "Typescript", "Django", "RestFramework", "SQLite"]
     },
     {   // gestion de billet
-        id: 7,
+        id: 8,
         workType: "web",
         image: [],
         altImg: "",
@@ -86,7 +96,7 @@ export const projectList = [
         listeTechno: ["Flask", "Bootstrap", "JS", "MySQL"]
     },
     {   // androy olap
-        id: 8,
+        id: 9,
         workType: "autres",
         image: [ImageAndroyOLAP_1],
         altImg: "androy olap",
@@ -96,7 +106,7 @@ export const projectList = [
         listeTechno: ["OpenStat", "PowerBI", "SpagoBI", "Talend", "PostgreSQL"]
     },
     {   // gestion de stock de boisons
-        id: 9,
+        id: 10,
         workType: "web",
         image: [],
         altImg: "star stock",
@@ -107,7 +117,7 @@ export const projectList = [
     }
     ,
     {   // iarintsena
-        id: 10,
+        id: 11,
         workType: "autres",
         image: [],
         altImg: "iarintsena img",
@@ -118,7 +128,7 @@ export const projectList = [
     }
     ,
     {   // teny
-        id: 11,
+        id: 12,
         workType: "autres",
         image: [],
         altImg: "img teny vitsy",
