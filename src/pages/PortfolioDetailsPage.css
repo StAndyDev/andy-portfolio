@@ -4,8 +4,6 @@
 }
 .portfolio-details .container{
     padding: 3rem 3rem 3rem 3rem;
-    display: flex;
-    flex-direction: column;
     background-color: var(--current-color-white);
     box-shadow: 0 25px 35px rgba(0, 0, 0, 0.3);
 }
@@ -13,11 +11,6 @@
 .portfolio-details .title-content {
     display: flex;
     flex-direction: column;
-}
-.portfolio-details .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 .portfolio-details .title-content .first-title {
     color: var(--current-color-dark);
@@ -33,6 +26,27 @@
     font-size: small;
     letter-spacing: 0.05rem;
 }
+/* project details */
+.portfolio-details .project-details {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 75% 20%;
+    grid-template-rows: auto auto;
+    column-gap: 3.5vw;
+}
+.project-details .carousel-conteneur {
+    grid-column: 1;
+    grid-row: 1;
+}
+.project-details .details-conteneur {
+    grid-column: 1;
+    grid-row: 2;
+}
+.project-details .project-categ {
+    grid-column: 2;
+    grid-row: 1/3;
+}
+
 /* --------- carousel content -------- */
 /* btn next et prev */
 .carousel-conteneur .swiper-button-next, 
@@ -59,14 +73,7 @@
     height: 100%;
 }
 
-.portfolio-details .project-details {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-}
 .project-details .carousel-conteneur {
-    /* height: 300px; */
     display: flex;
     align-items: center;
     background-color: var(--current-color-white);
@@ -82,6 +89,7 @@
 }
 .carousel-conteneur .swiper-slide img {
     min-height: 460px;
+    object-fit: scale-down;
 }
 .swiper-slide .slide-description {
     height: 70px;
@@ -93,28 +101,31 @@
 
 /* --------- right menu ------------*/
 .portfolio-details .project-categ {
-    width: 20%;
     border-radius: var(--border-radius);
-    border: 4px double var(--current-color-blue);
+    border: 1px solid var(--current-color-gray);
 }
 /* titre bordure */
 .project-categ legend {
-    font-size: var(--h3-font-size);
+    font-size: 14px;
     padding: 0 5px;
     color: var(--current-color-blue);
     margin-left: 7px;
 }
 .project-categ .chevron {
-    font-size: 25px;
+    font-size: 20px;
+}
+/* menu list */
+.project-categ .MuiListItemText-root > span {
+    font-size: 14px;
 }
 .project-categ .icon_project_categ {
     color: var(--current-color-blue);
-    font-size: 21px;
+    /* font-size: 14px; */
     cursor: pointer;
 }
 .project-categ .icon_project_categ_item {
     color: var(--color-primary);
-    font-size: 20px;
+    /* font-size: 18px; */
 }
 /* details list */
 .project-details .details_list {
@@ -128,8 +139,15 @@
     align-items: center;
     gap: 0.4rem;
 }
-.project-details .details_list .details_item > :not(p){
+.project-details .details_list .details_item > :not(i, p){
     color: var(--current-color-gray);
+}
+.project-details .details_list .details_item .icon-empty {
+    color: rgb(255, 105, 97);
+}
+.project-details .details_list .details_item .icon-empty + p {
+    font-style: italic;
+    color: rgb(255, 105, 97);
 }
 /* btn */
 .btn_to_github_conteneur {
@@ -146,4 +164,51 @@
 }
 .btn_link_to_github i {
     font-size: 20px;
+}
+
+/* ================ Media queries ==================*/
+/* 1200px */
+@media (max-width: 1200px) {
+    .carousel-conteneur .swiper-slide img {
+        min-height: 360px;
+    }
+
+}
+/* 1040px */
+@media (max-width: 1040px) {
+.portfolio-details .project-details {
+    grid-template-columns: 76% 20%;
+    grid-template-rows: auto auto;
+}
+.project-details .carousel-conteneur {
+    grid-column: 1/3;
+    grid-row: 1;
+}
+.project-details .details-conteneur {
+    grid-column: 1;
+    grid-row: 2;
+}
+.project-details .project-categ {
+    grid-column: 2;
+    grid-row: 2/3;
+}
+
+}
+/* 865px */
+@media (max-width: 865px) {
+    .portfolio-details .project-details {
+        grid-template-columns: 70% 26%;
+        grid-template-rows: auto auto;
+    }
+}
+/* 865px */
+@media (max-width: 768px) {
+    .carousel-conteneur .swiper-slide img {
+        min-height: 220px;
+    }
+    .portfolio-details .project-details {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+    }
 }

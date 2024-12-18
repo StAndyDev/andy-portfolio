@@ -21,7 +21,6 @@ export default function ThemeCustomise() {
                     <li className="theme">
                         <span>Mode Sombre</span>
                         <input type="checkbox" checked={isDarkMode} onChange={() => isDarkMode? applyTheme('light') : applyTheme('dark')} id="check-change-mode" style={{ display: 'none' }}/>
-                        {console.log("Is Dark Mode : "+isDarkMode)}
                         <label htmlFor="check-change-mode" className="toggle-btn"></label>
                     </li>
                     {/* <!-- color --> */}

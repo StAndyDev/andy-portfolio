@@ -38,21 +38,20 @@ const Carousel = () => {
                 loop={true}
                 className="mySwiper"
             >
-
                 {projectList[index].image.map((sary, i) => (
                     <SwiperSlide
                         key={projectList[index].image[i]}>
-                            <div>
-                                <img
-                                    src={sary}
-                                    alt={projectList[index].altImg}
-                                    loading="lazy"
-                                />
-                                <div className="overlay"></div>
-                                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                                <div className='slide-description'>migration des données du fichier xml vers excel</div>
-                            </div>
-                            
+                        <div>
+                            <img
+                                src={sary}
+                                alt={projectList[index].altImg}
+                                loading="lazy"
+                            />
+                            <div className="overlay"></div>
+                            <div className="swiper-lazy-preloader swiper-lazy-preloader-blue"></div>
+                            <div className='slide-description'>{projectList[index].description_image[i]}</div>
+                        </div>
+
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -81,13 +80,13 @@ const NestedList = () => {
                 <ListItemIcon sx={{ marginRight: -3 }}>
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
-                <ListItemText primary="WEB" style={{cursor: 'pointer'}}/>
+                <ListItemText primary="WEB" style={{ cursor: 'pointer' }} />
                 <i className={`chevron bx ${openWebCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openWebCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {projectList.map((techno) => (
-                        (techno.workType === "web")? (
+                        (techno.workType === "web") ? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
                                     <i className={'icon_project_categ_item bx bx-globe'}></i>
@@ -95,7 +94,7 @@ const NestedList = () => {
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
                                 </Link>
-                                
+
                             </ListItem>
                         ) : null
                     ))}
@@ -107,13 +106,13 @@ const NestedList = () => {
                 <ListItemIcon sx={{ marginRight: -3 }}>
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
-                <ListItemText primary="DESKTOP" style={{cursor: 'pointer'}}/>
+                <ListItemText primary="DESKTOP" style={{ cursor: 'pointer' }} />
                 <i className={`chevron bx ${openDesktopCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openDesktopCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {projectList.map((techno) => (
-                        (techno.workType === "desktop")? (
+                        (techno.workType === "desktop") ? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
                                     <i className={'icon_project_categ_item bx bx-desktop'}></i>
@@ -121,7 +120,7 @@ const NestedList = () => {
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
                                 </Link>
-                                
+
                             </ListItem>
                         ) : null
                     ))}
@@ -133,13 +132,13 @@ const NestedList = () => {
                 <ListItemIcon sx={{ marginRight: -3 }}>
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
-                <ListItemText primary="MOBILE" style={{cursor: 'pointer'}}/>
+                <ListItemText primary="MOBILE" style={{ cursor: 'pointer' }} />
                 <i className={`chevron bx ${openMobileCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openMobileCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {projectList.map((techno) => (
-                        (techno.workType === "mobile")? (
+                        (techno.workType === "mobile") ? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
                                     <i className={'icon_project_categ_item bx bx-mobile'}></i>
@@ -147,7 +146,7 @@ const NestedList = () => {
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
                                 </Link>
-                                
+
                             </ListItem>
                         ) : null
                     ))}
@@ -159,13 +158,13 @@ const NestedList = () => {
                 <ListItemIcon sx={{ marginRight: -3 }}>
                     <i className={'icon_project_categ bx bx-folder'}></i>
                 </ListItemIcon>
-                <ListItemText primary="AUTRES" style={{cursor: 'pointer'}}/>
+                <ListItemText primary="AUTRES" style={{ cursor: 'pointer' }} />
                 <i className={`chevron bx ${openAutresCateg ? 'bx-chevron-up' : 'bx-chevron-down'}`}></i>
             </ListItem>
             <Collapse in={openAutresCateg} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {projectList.map((techno) => (
-                        (techno.workType === "autres")? (
+                        (techno.workType === "autres") ? (
                             <ListItem key={techno.id} sx={{ pl: 4 }}>
                                 <ListItemIcon sx={{ marginRight: -3 }}>
                                     <i className={'icon_project_categ_item bx bx-cube'}></i>
@@ -173,7 +172,7 @@ const NestedList = () => {
                                 <Link to={"/project/details/" + techno.id}>
                                     <ListItemText primary={techno.workTitle} />
                                 </Link>
-                                
+
                             </ListItem>
                         ) : null
                     ))}
@@ -188,7 +187,7 @@ const NestedList = () => {
 
 // --------- PORTFOLIO DETAILS -------------
 export default function PortfolioDetailsPage() {
-    
+
 
     const { cardId } = useParams();
     const validCardIds = [];
@@ -216,20 +215,21 @@ export default function PortfolioDetailsPage() {
                     <span className='second-title'>type : {projectList[index].workType} | projectID : {projectList[index].id}</span>
                     <span className='first-title'>{projectList[index].workTitle} <span className='first-subtitle'>({projectList[index].workSubtitle})</span></span>
                 </div>
-                <div className="row">
-                    <div className='project-details'>
-                        <div className='carousel-conteneur' data-aos="fade-right">
-                            <Carousel />
+                <div className="row project-details">
+                    {/* slide */}
+                    <div className='carousel-conteneur' data-aos="fade-right">
+                        <Carousel />
+                    </div>
+                    {/* details */}
+                    <div className='details-conteneur'>
+                        <div className="work_techno">
+                            {projectList[index].listeTechno.map((techno, i) => (
+                                <span key={i} className="techno_item">{techno}</span>
+                            ))
+                            }
                         </div>
-                        <div>
-                            <div className="work_techno">
-                                {projectList[index].listeTechno.map((techno, i) => (
-                                    <span key={i} className="techno_item">{techno}</span>
-                                ))
-                                }
-                            </div>
-                            <p className='work_text'>{projectList[index].text}</p>
-                            {/* ---- NATURE DE PROJET ----
+                        <p className='work_text'>{projectList[index].text}</p>
+                        {/* ---- NATURE DE PROJET ----
                                 Stage
                                 Projet personnel
                                 Travail en équipe
@@ -241,51 +241,57 @@ export default function PortfolioDetailsPage() {
                                 Prototype ou R&D (recherche et developpement)
                                 Projet communautaire 
                             */}
-                            <ul className='details_list'>
-                                <div className='details_item'>
-                                    <i className="bx bx-buildings"></i>
-                                    <li>version :</li>
-                                    <p>rano</p>
-                                </div>
-                                
-                                <div className='details_item'>
-                                    <i className="bx bx-briefcase"></i>
-                                    <li>nature :</li>
-                                </div>
-                                <div className='details_item'>
-                                    <i className="bx bx-calendar"></i>
-                                    <li>date :</li>
-                                </div>
-                                <div className='details_item'>
-                                    <i className="bx bx-time-five"></i>
-                                    <li>durée :</li>
-                                </div>
-                                <div className='details_item'>
-                                    <i className="bx bx-note"></i>
-                                    <li>evaluation :</li>
-                                </div>
-                                <div className='details_item'>
-                                    <i className="bx bx-link"></i>
-                                    <li>référence :</li>
-                                </div>
-                                <div className='details_item'>
-                                    <i className="bx bx-link"></i>
-                                    <li>acquis :</li>
-                                </div>
-                                <div className='details_item'>
-                                    <i className="bx bx-link"></i>
-                                    <li>remarques :</li>
-                                </div>
-                            </ul>
-                            {/* btn */}
-                            <div className="btn_to_github_conteneur">
-                                <a href='https://github.com' className="btn_link_to_github">
-                                    <i className='bx bxl-github' style={{ fontSize: '24px' }}></i>
-                                    <p>voir sur github</p>
-                                </a>
+                        <ul className='details_list'>
+                            <div className='details_item'>
+                                <i className="bx bx-buildings"></i>
+                                <li>version :</li>
+                                {(projectList[index].details[0].version).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non spécifiée</p> </>) : <p>{(projectList[index].details[0].version)}</p>}
                             </div>
 
+                            <div className='details_item'>
+                                <i className="bx bx-briefcase"></i>
+                                <li>nature :</li>
+                                {(projectList[index].details[0].nature).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non définie</p> </>) : <p>{(projectList[index].details[0].nature)}</p>}
+                            </div>
+                            <div className='details_item'>
+                                <i className="bx bx-calendar"></i>
+                                <li>date :</li>
+                                {(projectList[index].details[0].date).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non renseignée</p> </>) : <p>{(projectList[index].details[0].date)}</p>}
+                            </div>
+                            <div className='details_item'>
+                                <i className="bx bx-time-five"></i>
+                                <li>durée :</li>
+                                {(projectList[index].details[0].duree).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non précisée</p> </>) : <p>{(projectList[index].details[0].duree)}</p>}
+                            </div>
+                            <div className='details_item'>
+                                <i className="bx bx-note"></i>
+                                <li>évaluation :</li>
+                                {(projectList[index].details[0].evaluation).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non disponible</p> </>) : <p>{(projectList[index].details[0].evaluation)}</p>}
+                            </div>
+                            <div className='details_item'>
+                                <i className="bx bx-link"></i>
+                                <li>référence :</li>
+                                {(projectList[index].details[0].reference).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>aucune référence fournie</p> </>) : <p>{(projectList[index].details[0].reference)}</p>}
+                            </div>
+                            <div className='details_item'>
+                                <i className="bx bx-star"></i>
+                                <li>acquis :</li>
+                                {(projectList[index].details[0].acquis).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>aucun acquis mentionné</p> </>) : <p>{(projectList[index].details[0].acquis)}</p>}
+                            </div>
+                            <div className='details_item'>
+                                <i className="bx bxs-bookmark-star"></i>
+                                <li>remarques :</li>
+                                {(projectList[index].details[0].remarques).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>aucune remarque ajoutée</p> </>) : <p>{(projectList[index].details[0].remarques)}</p>}
+                            </div>
+                        </ul>
+                        {/* btn */}
+                        <div className="btn_to_github_conteneur">
+                            <a href={(projectList[index].details[0].github).trim() === "" ? "" : (projectList[index].details[0].github)} className="btn_link_to_github">
+                                <i className='bx bxl-github' style={{ fontSize: '24px' }}></i>
+                                <p>voir sur github</p>
+                            </a>
                         </div>
+
                     </div>
 
                     {/* menu */}
