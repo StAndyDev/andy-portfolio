@@ -13,7 +13,7 @@ const Scene3D = () => {
         let controls;
         let renderer;
         let scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(32, container.clientWidth / container.clientHeight, 0.1, 10000);
+        const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 10000);
         camera.position.x = 4000;
         camera.position.z = 3000;
 
@@ -113,7 +113,7 @@ const Scene3D = () => {
 
             controls = new TrackballControls(camera, renderer.domElement);
             controls.minDistance = 3000;
-            controls.maxDistance = 4000;
+            controls.maxDistance = 3000;
             controls.addEventListener('change', render);
 
             transform(targets.sphere, 2000);
@@ -181,7 +181,8 @@ const Scene3D = () => {
         }
     }, []);
 
-    return <div ref={containerRef} style={{ width: '100%', height: '100%', display: 'flex' } }></div>;
+    // return <div ref={containerRef} style={{ width: '100%', height: '100%' } }></div>;
+    return <div ref={containerRef} className='rendu-content'></div>;
 };
 
 export default Scene3D;

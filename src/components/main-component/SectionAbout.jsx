@@ -47,8 +47,8 @@ export default function SectionAbout() {
                     {/* sphere content */}
                     <div className="sphere-content" data-aos="fade-left" data-aos-duration="500" data-aos-offset="200">
                         <h2 style={{ textAlign: 'center' }}>Mon univers de compétences</h2>
-                        <span className="info">&#123; tourner la sphère pour explorer &#125;</span>
-                        <Suspense className="rendu-content" fallback={<div>Chargement du rendu...</div>}>
+                        <p className="info">&#123; tourner la sphère pour explorer &#125;</p>
+                        <Suspense fallback={<div>Chargement du rendu...</div>}>
                             <Scene3D />
                         </Suspense>
                     </div>
@@ -57,7 +57,7 @@ export default function SectionAbout() {
             {/* second row */}
             <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
                 <h2 style={{ textAlign: 'center' }}>les technologies que j'ai utilisées récemment</h2>
-                <div style={{ maxWidth: '80%', height: '100%', display: 'flex',  marginTop: '20px'}}>
+                <div className="image_slide_content">
                     <SwiperCarousel />
                 </div>
             </div>

@@ -8,7 +8,7 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         // appliquer theme mode
         const savedTheme = localStorage.getItem('s_andy_portfolio_theme');
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'dark' || !savedTheme) {
             applyTheme('dark');
         } else {
             applyTheme('light');

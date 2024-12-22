@@ -25,7 +25,7 @@ export default function SectionServices() {
                     {/* BI */}
                     <div className="service-item" data-aos="zoom-in-up" data-aos-duration="1500" data-aos-offset="100">
                         <i className='bx bx-stats item-icon'></i>
-                        <span className="item-title">Business Intelligence</span>
+                        <span className="item-title">Analyse de données</span>
                         <p className="item-text">Mise en place de systèmes d'analyse pour transformer vos données en informations stratégiques et 
                             faciliter vos prises de décision.</p>
                     
@@ -34,8 +34,8 @@ export default function SectionServices() {
                     <div className="service-item" data-aos="zoom-in-up" data-aos-duration="2000" data-aos-offset="100">
                     <i className='bx bxl-deezer item-icon'></i>
                         <span className="item-title">Production Audio-Musicale</span>
-                        <p className="item-text">Création, composition et production de musique originale pour tous vos projets, qu’il s’agisse de bandes sonores, 
-                            de jingles, ou de compositions sur mesure.</p>
+                        <p className="item-text">Création, composition et production de musique pour tous vos projets, qu’il s’agisse de bandes sonores, 
+                            de jingles, ou d'autres compositions.</p>
                     
                     </div>
                 </div>

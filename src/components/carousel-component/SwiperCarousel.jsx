@@ -23,10 +23,10 @@ function SwiperCarousel() {
     <Swiper
       className='swiper-carousel'
       modules = {[Autoplay, Pagination]}  //activation des modules
-      autoplay = {{
-        delay: 2000,
-        disableOnInteraction: false,
-      }}
+      // autoplay = {{
+      //   delay: 2000,
+      //   disableOnInteraction: false,
+      // }}
       pagination={{ clickable: true }}
       loop = {true}
       // navigation={true}

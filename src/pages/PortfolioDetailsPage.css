@@ -79,8 +79,7 @@
     background-color: var(--current-color-white);
     margin-top: 12px;
     margin-bottom: 12px;
-    box-shadow: 0 2px 45px rgba(0, 0, 0, 0.2);
-    
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 .carousel-conteneur .swiper-slide {
     display: flex;
@@ -88,6 +87,7 @@
     justify-content: center;
 }
 .carousel-conteneur .swiper-slide img {
+    width: 100%;
     min-height: 460px;
     object-fit: scale-down;
 }
