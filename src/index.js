@@ -10,7 +10,7 @@ import MainParentPage from './pages/MainParentPage';
 import './styles/style.css';
 import { useState, useEffect } from 'react';
 import { tailChase } from 'ldrs';
-import { ThemeProvider } from './ThemeContext'; // pour appliquer notre theme
+import { ThemeProvider } from './ThemeContext'; // pour appliquer le context (notre theme)
 
 export default function App() {
   const [colorLoader, setColorLoader] = useState('');
@@ -31,11 +31,15 @@ export default function App() {
   return (
     <div>
       <div className='loader-content'>
-        <my-loader
-          size="65"
-          speed="1.75"
-          color={colorLoader}
-        ></my-loader>
+        <div className='loader-parent'>
+          <my-loader
+            size="75"
+            speed="1.75"
+            color={colorLoader}
+          ></my-loader>
+          <div className='loader-text'>--___--</div>
+        </div>
+
       </div>
 
       <Router>

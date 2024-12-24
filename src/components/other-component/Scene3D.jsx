@@ -14,7 +14,7 @@ const Scene3D = () => {
         let renderer;
         let scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 10000);
-        camera.position.x = 4000;
+        camera.position.x = 1000;
         camera.position.z = 3000;
 
 
@@ -22,34 +22,35 @@ const Scene3D = () => {
         const targets = { sphere: [] };
         const table = [
             'Javascript', 'Javascript', '1.00794', 1, 1,
-            'PHP', 'Helium', '4.002602', 18, 1,
-            'Python', 'Lithium', '6.941', 1, 2,
-            'MySQL', 'Beryllium', '9.012182', 2, 2,
-            'Three JS', 'Boron', '10.811', 13, 2,
-            'TensorFlow', 'Carbon', '12.0107', 14, 2,
-            'Docker', 'Potassium', '39.948', 1, 4,
-            'Langage C', 'Chlorine', '35.453', 17, 3,
-            'React', 'Oxygen', '15.9994', 16, 2,
-            'Ionic', 'Fluorine', '18.9984032', 17, 2,
-            'TypeScript', 'Neon', '20.1797', 18, 2,
-            'Angular', 'Sodium', '22.98976...', 1, 3,
-            'Ajax', 'Magnesium', '24.305', 2, 3,
-            'PostgreSQL', 'Aluminium', '26.9815386', 13, 3,
-            'Django', 'Silicon', '28.0855', 14, 3,
-            'HSQL', 'Phosphorus', '30.973762', 15, 3,
-            'Postman', 'Sulfur', '32.065', 16, 3,
+            'PHP', 'PHP', '4.002602', 18, 1,
+            'Python', 'Python', '6.941', 1, 2,
+            'MySQL', 'MySQL', '9.012182', 2, 2,
+            'Scikit-learn', 'Scikit-learn', '26.9815386', 3, 3,
+            'TensorFlow', 'TensorFlow', '12.0107', 14, 2,
+            'Docker', 'Docker', '39.948', 1, 4,
+            'PostGis', 'PostGis', '35.453', 17, 3,
+            'React', 'React', '15.9994', 16, 2,
+            'Ionic', 'Ionic', '18.9984032', 17, 2,
+            'TypeScript', 'TypeScript', '20.1797', 18, 2,
+            'Angular', 'Angular', '22.98976...', 1, 3,
+            'Ajax', 'Ajax', '24.305', 2, 3,
+            'NLP', 'NLP', '28.0855', 4, 3,
+            'Three JS', 'Three JS', '10.811', 13, 2,
+            'PostgreSQL', 'PostgreSQL', '26.9815386', 13, 3,
+            'Django', 'Django', '28.0855', 14, 3,
+            'HSQL', 'HSQL', '30.973762', 15, 3,
+            'Postman', 'Postman', '32.065', 16, 3,
             'Talend', 'Talend', '14.2415', 5, 4,
-            'Java', 'Nitrogen', '14.0067', 15, 2,
-            'Git/Github', 'Argon', '39.948', 18, 3,
+            'Java', 'Java', '14.0067', 15, 2,
+            'Git/Github', 'Git/Github', '39.948', 18, 3,
             'JQuery', 'JQuery', '40.078', 2, 4,
-            'Laravel', 'Scandium', '44.955912', 3, 4,
-            'Flask', 'Titanium', '47.867', 4, 4,
-            'Swagger', 'Vanadium', '50.9415', 5, 4,
-            'JBoss', 'Chromium', '51.9961', 6, 4,
-            'JPA', 'Manganese', '54.938045', 7, 4,
-            'TinkerCad', 'Iron', '55.845', 8, 4,
-            'QGIS', 'Cobalt', '58.933195', 9, 4,
-            'PostGis', 'Nickel', '58.6934', 10, 4,
+            'Talend', 'Talend', '44.955912', 3, 4,
+            'Flask', 'Flask', '47.867', 4, 4,
+            'Swagger', 'Swagger', '50.9415', 5, 4,
+            'JBoss', 'JBoss', '51.9961', 6, 4,
+            'JPA', 'JPA', '54.938045', 7, 4,
+            'TinkerCad', 'TinkerCad', '55.845', 8, 4,
+            'QGIS', 'QGIS', '58.933195', 9, 4,
             'REST', 'REST', '61.03934', 11, 4,
             'JWT', 'JWT', '61.73934', 12, 4,
             'JSON', 'JSON', '61.73934', 13, 4,
@@ -112,8 +113,8 @@ const Scene3D = () => {
             container.appendChild(renderer.domElement);
 
             controls = new TrackballControls(camera, renderer.domElement);
-            controls.minDistance = 3000;
-            controls.maxDistance = 3000;
+            controls.noPan = true;
+            controls.noZoom = true;
             controls.addEventListener('change', render);
 
             transform(targets.sphere, 2000);

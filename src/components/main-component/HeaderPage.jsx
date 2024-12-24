@@ -53,7 +53,7 @@ export default function HeaderPage() {
         <header className="header" id="header">
             {/* <!-- nav --> */}
             <nav className="nav container padd-15">
-                <a href="#home" className="nav-logo">
+                <a href="/#home" className="nav-logo">
                     <h2><span className="header-title">&lt;&#47;</span>sitraka_andY<span className="header-title">&gt;</span></h2>
                 </a>
                 {/* <!-- menu --> */}

@@ -16,7 +16,7 @@ export default function SectionAbout() {
                     <div className="about-content padd-15" data-aos="fade-right" data-aos-duration="500" data-aos-offset="200">
                         <h2 style={{ textAlign: 'center' }}>Qui suis je?</h2>
                         <p className="intro-text">
-                            Je m'appelle ANDRIANIRINA Sitraka Fiderana (sitraka andy &#128512;), étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>.
+                            Je m'appelle ANDRIANIRINA Sitraka Fiderana, également connu sous le nom de Sitraka Andy &#128512;, étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>.
                             J'ai récemment terminé mon cursus de Master(M2). En attente de ma soutenance pour l'obtention officielle de mon diplôme, 
                             je suis activement à la recherche d'une opportunité professionnelle dans le domaine du développement &#128522;.
                         </p>

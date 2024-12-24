@@ -422,6 +422,7 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 10fr;
     grid-template-rows: auto auto;
+    margin-bottom: 12px;
 }
 
 .formation-item i {
@@ -753,7 +754,7 @@ h3 {
     gap: 2rem;
 }
 
-.contact-content a {
+.contact-content .contact-item {
     background-color: var(--current-color-light);
     padding: 0.5rem 1.5rem;
     border-radius: var(--border-radius);
@@ -778,6 +779,7 @@ h3 {
 .other-contact-content {
     display: inline-flex;
     gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .other-contact-content a {
@@ -787,7 +789,12 @@ h3 {
     border: 0.1rem solid var(--current-color-dark);
     border-radius: 50%;
 }
-
+.other-contact .thanks-message {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+}
 /* ========================== SCENE 3D =========================== */
 .element {
     width: 320px;
@@ -802,15 +809,7 @@ h3 {
 
 .element:hover {
     box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.75);
-    border: 1px solid rgba(127, 255, 255, 0.75);
-}
-
-.element .number {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 12px;
-    color: rgba(127, 255, 255, 0.75);
+    border: 2px solid rgba(127, 255, 255, 0.75);
 }
 
 .element .symbol {
@@ -823,8 +822,16 @@ h3 {
     color: rgba(7, 7, 7, 0.75);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
 }
-
+.element .number {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(127, 255, 255, 0.75);
+}
 .element .details {
+    display: none;
     position: absolute;
     bottom: 15px;
     left: 0px;
@@ -860,7 +867,7 @@ h3 {
     display: flex;
 }
 .carousel-content .swiper-carousel img {
-    width: calc(30px + 2vw);
+    width: calc(30px + 3vw);
 }
 
 .swiper-carousel .swiper-pagination-bullet {
@@ -1007,6 +1014,15 @@ input:checked+.toggle-btn::before {
     display: grid;
     place-content: center;
 }
+.loader-content .loader-parent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+.loader-content .loader-text {
+    color: var(--color-blue);
+}
 
 /* ====================================== MEDIA QUERIES ================================*/
 /*  */
@@ -1079,6 +1095,9 @@ input:checked+.toggle-btn::before {
         align-items: center;
     }
         /* =================== ABOUT ================= */
+        .sphere-content {
+            margin-top: 30px;
+        }
         .sphere-content .rendu-content {
             width: 80vw;
             height: 80vw;
@@ -1142,7 +1161,9 @@ input:checked+.toggle-btn::before {
     }
 
     /* ============= HOME =========== */
-
+    .home {
+        height: auto;
+    }
     .home .container .row {
         flex-direction: column;
     }
@@ -1153,13 +1174,11 @@ input:checked+.toggle-btn::before {
         margin-top: var(--m-2-5);
         margin-bottom: var(--m-1);
     }
-
     .customize-theme .card {
         padding: 3rem;
         width: 400px;
         row-gap: 0.4rem;
     }
-
     /* les reseaux sociaux */
     .social-icons {
         column-gap: 1.5rem;
