@@ -33,7 +33,7 @@ export default function SectionContact() {
                             <a href="https://wa.me/+261334762107" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-duration="1000"  data-aos-offset="100"> <i className="bx bxl-whatsapp"></i> </a>
                             <a href="https://github.com/StAndyDev" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-duration="500"  data-aos-offset="100"> <i className="bx bxl-github"></i> </a>
                         </div>
-                        <div className="thanks-message">MERCI POUR LE VISITE !!!</div>
+                        <div className="thanks-message">MERCI POUR VOTRE VISITE !</div>
                     </div>
                 </div>
             </div>
