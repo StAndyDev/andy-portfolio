@@ -40,7 +40,7 @@ export default function SectionAbout() {
                                     <span>stage et obtention d'un DTS en développement d'application intranet et internet</span>
                                 </li>
                             </ul>
-                            <ButtonDefault href="/cv-stk.pdf" downloadFileName={"cv-sitraka_andy.pdf"} label="telecharger mon cv" boxIconName="bx bx-download" />
+                            <ButtonDefault href="/CV-Sitraka_Andy.pdf" downloadFileName={"CV-Sitraka_Andy.pdf"} label="telecharger mon cv" boxIconName="bx bx-download" />
                         </div>
 
                     </div>
