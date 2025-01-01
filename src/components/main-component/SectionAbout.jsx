@@ -13,7 +13,7 @@ export default function SectionAbout() {
                 {/* first row */}
                 <div className="row">
                     {/* about content */}
-                    <div className="about-content padd-15" data-aos="fade-right" data-aos-duration="500" data-aos-offset="200">
+                    <div className="about-content padd-15 about-content_animation">
                         <h2 style={{ textAlign: 'center' }}>Qui suis je?</h2>
                         <p className="intro-text">
                             Je m'appelle ANDRIANIRINA Sitraka Fiderana, également connu sous le nom de Sitraka Andy &#128512;, étudiant à l'<a href="https://www.emit.mg" style={{ fontStyle: 'italic' }}>EMIT</a>.
@@ -45,7 +45,7 @@ export default function SectionAbout() {
 
                     </div>
                     {/* sphere content */}
-                    <div className="sphere-content" data-aos="fade-left" data-aos-duration="500" data-aos-offset="200">
+                    <div className="sphere-content sphere-content_animation">
                         <h2 style={{ textAlign: 'center' }}>Mon univers de compétences</h2>
                         <p className="info">&#123; tourner la sphère pour explorer &#125;</p>
                         <Suspense fallback={<div>Chargement du rendu...</div>}>
@@ -55,7 +55,7 @@ export default function SectionAbout() {
                 </div>
             </div>
             {/* second row */}
-            <div className="carousel-content" data-aos="zoom-in" data-aos-duration="500" data-aos-offset="200">
+            <div className="carousel-content carousel_animation">
                 <h2 style={{ textAlign: 'center' }}>les technologies que j'ai utilisées récemment</h2>
                 <div className="image_slide_content">
                     <SwiperCarousel />

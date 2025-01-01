@@ -9,13 +9,13 @@ import "swiper/css/pagination"; // Styles pour la pagination
 import { Autoplay } from 'swiper/modules';
 
 import AsyncImage from "../AsyncImage/AsyncImage";
-import JavascriptLogo from '../../assets/images/techno/javascript_100px.png';
-import PhpLogo from '../../assets/images/techno/php_logo_100px.png';
+import TypeScriptLogo from '../../assets/images/techno/typescript.png';
 import JavaLogo from '../../assets/images/techno/java_100px.png';
 import DjangoLogo from '../../assets/images/techno/django_100px.png';
 import ReactLogo from '../../assets/images/techno/react_100px.png';
 import AngularLogo from '../../assets/images/techno/angularjs_100px.png';
-import BootstrapLogo from '../../assets/images/techno/bootstrap_100px.png';
+import ScikitLearnLogo from '../../assets/images/techno/Scikit_learn.png';
+import TensorFlowLogo from '../../assets/images/techno/tensorflow.png';
 
 function SwiperCarousel() {
 
@@ -23,24 +23,17 @@ function SwiperCarousel() {
     <Swiper
       className='swiper-carousel'
       modules = {[Autoplay, Pagination]}  //activation des modules
-      // autoplay = {{
-      //   delay: 2000,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay = {{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
       pagination={{ clickable: true }}
       loop = {true}
-      // navigation={true}
-
       spaceBetween={10}
       slidesPerView={4}
-      // onSlideChange={() => console.log('slide change')}
-      // onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-        <AsyncImage imageUrl={JavascriptLogo} alt="javascript logo" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <AsyncImage imageUrl={PhpLogo} alt="php logo" />
+        <AsyncImage imageUrl={TypeScriptLogo} alt="javascript logo" />
       </SwiperSlide>
       <SwiperSlide>
         <AsyncImage imageUrl={JavaLogo} alt="java logo" />
@@ -55,7 +48,10 @@ function SwiperCarousel() {
         <AsyncImage imageUrl={AngularLogo} alt="angular logo" />
       </SwiperSlide>
       <SwiperSlide>
-        <AsyncImage imageUrl={BootstrapLogo} alt="bootstrap logo" />
+        <AsyncImage imageUrl={ScikitLearnLogo} alt="angular logo" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <AsyncImage imageUrl={TensorFlowLogo} alt="angular logo" />
       </SwiperSlide>
     </Swiper>
   );

@@ -11,6 +11,7 @@ import './styles/style.css';
 import { useState, useEffect } from 'react';
 import { tailChase } from 'ldrs';
 import { ThemeProvider } from './ThemeContext'; // pour appliquer le context (notre theme)
+import ScrollReveal from 'scrollreveal'; // animation on scroll
 
 export default function App() {
   const [colorLoader, setColorLoader] = useState('');
@@ -26,6 +27,110 @@ export default function App() {
     });
     // color loader
     setColorLoader(colorBlue);
+
+    //  ==== animation on scroll ====
+    // section-title animation
+    ScrollReveal().reveal('.section-title_animation', {
+      distance: '80px',
+      duration: 500,
+      delay: 100,
+      easing: 'ease-out',
+      origin: 'top',
+      scale: 0.8,
+      opacity: 0,
+      reset: true,
+      interval: 0,
+    });
+
+    // about animation
+    ScrollReveal().reveal('.about-content_animation', {
+      distance: '80px',
+      duration: 1000,
+      delay: 300,
+      origin: 'left',
+      scale: 0.8,
+      easing: 'ease-out',
+      opacity: 0,
+      reset: true
+    });
+    ScrollReveal().reveal('.sphere-content_animation', {
+      duration: 1500,
+      delay: 300,
+      distance: "0px",
+      opacity: 0,
+      easing: "ease-in-out",
+      reset: true,
+    });
+    // carousel animation
+    ScrollReveal().reveal('.carousel_animation', {
+      distance: '100px',
+      duration: 300,
+      delay: 300,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: true,
+      interval: 300,
+    });
+
+    // home animation
+    ScrollReveal().reveal('.home-img_animation', {
+      distance: '80px',
+      duration: 1000,
+      delay: 300,
+      origin: 'left',
+      scale: 0.8,
+      easing: 'ease-out',
+      opacity: 0,
+      reset: true
+    });
+
+    ScrollReveal().reveal('.home-intro_animation', {
+      distance: '80px',
+      duration: 1000,
+      delay: 300,
+      origin: 'right',
+      scale: 0.8,
+      easing: 'ease-out',
+      opacity: 0,
+      reset: true
+    });
+    // social-icons animation
+    ScrollReveal().reveal('.social-icons_animation', {
+      distance: '100px',
+      duration: 300,
+      delay: 500,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: true,
+      interval: 300,
+    });
+
+    // service animation
+    ScrollReveal().reveal('.service_animation', {
+      distance: '100px',
+      duration: 500,
+      delay: 300,
+      easing: 'ease-in-out',
+      origin: 'left',
+      opacity: 0,
+      reset: true,
+      interval: 300,
+    });
+    // portfolio animation
+    ScrollReveal().reveal('.portfolio_animation', {
+      distance: '100px',
+      duration: 800,
+      delay: 200,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: true,
+      interval: 300,
+      viewFactor: -0.3,
+    });
+
   }, []);
 
   return (
