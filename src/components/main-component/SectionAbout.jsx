@@ -1,9 +1,8 @@
 import SectionTitle from "./SectionTitle";
-import React, { Suspense } from 'react';
 import ButtonDefault from "../button-component/ButtonDefault";
 import SwiperCarousel from "../carousel-component/SwiperCarousel";
+import Scene3D from "../other-component/Scene3D";
 
-const Scene3D = React.lazy(() => import("../other-component/Scene3D"));   //Async
 export default function SectionAbout() {
     return (
         <section className="about section" id="about">
@@ -48,9 +47,7 @@ export default function SectionAbout() {
                     <div className="sphere-content sphere-content_animation">
                         <h2 style={{ textAlign: 'center' }}>Mon univers de compétences</h2>
                         <p className="info">&#123; tourner la sphère pour explorer &#125;</p>
-                        <Suspense fallback={<div>Chargement du rendu...</div>}>
-                            <Scene3D />
-                        </Suspense>
+                        <Scene3D />
                     </div>
                 </div>
             </div>

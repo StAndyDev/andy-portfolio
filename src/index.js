@@ -54,9 +54,10 @@ export default function App() {
       reset: true
     });
     ScrollReveal().reveal('.sphere-content_animation', {
-      duration: 1500,
-      delay: 300,
       distance: "0px",
+      duration: 2000,
+      delay: 300,
+      origin: 'bottom',
       opacity: 0,
       easing: "ease-in-out",
       reset: true,
@@ -129,6 +130,60 @@ export default function App() {
       reset: true,
       interval: 300,
       viewFactor: -0.3,
+    });
+    // contact animation
+    ScrollReveal().reveal('.contact_animation', {
+      distance: '50px',
+      duration: 800,
+      delay: 200,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: true,
+      interval: 300,
+      viewFactor: -0.3,
+    });
+    // other-contact animation
+    ScrollReveal().reveal('.other-contact_animation', {
+      distance: '50px',
+      duration: 800,
+      delay: 300,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: true,
+      interval: 100,
+    });
+    // portfolio details animation
+    ScrollReveal().reveal('.portfolio-details-title_animation', {
+      distance: '50px',
+      duration: 800,
+      delay: 300,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: false,
+      interval: 100,
+    });
+    ScrollReveal().reveal('.portfolio-details-carousel_animation', {
+      distance: '0px',
+      duration: 800,
+      delay: 300,
+      easing: 'ease',
+      origin: 'bottom',
+      opacity: 0,
+      reset: false,
+      interval: 100,
+    });
+    ScrollReveal().reveal('.portfolio-details-others_animation', {
+      distance: '50px',
+      duration: 500,
+      delay: 300,
+      easing: 'ease',
+      origin: 'right',
+      opacity: 0,
+      reset: false,
+      interval: 100,
     });
 
   }, []);

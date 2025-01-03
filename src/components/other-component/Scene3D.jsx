@@ -1,25 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import TWEEN from 'three/examples/jsm/libs/tween.module.js';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 import { CSS3DRenderer, CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
-
 
 const Scene3D = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        let container = containerRef.current; //conteneur actuel
+        let container = containerRef.current; // Conteneur actuel
         let controls;
         let renderer;
         let scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 10000);
-        camera.position.x = 1000;
         camera.position.z = 3000;
 
-
         const objects = [];
-        const targets = { sphere: [] };
         const table = [
             'Javascript', 'Javascript', '1.00794', 1, 1,
             'PHP', 'PHP', '4.002602', 18, 1,
@@ -60,14 +55,14 @@ const Scene3D = () => {
 
         init();
         animate();
-        
+
         function init() {
+            const vector = new THREE.Vector3();
 
             for (let i = 0; i < table.length; i += 5) {
                 const element = document.createElement('div');
                 element.className = 'element';
                 element.style.backgroundColor = 'rgba(69, 196, 235,' + (Math.random() * 0.5 + 0.25) + ')';
-
 
                 const number = document.createElement('div');
                 number.className = 'number';
@@ -85,31 +80,20 @@ const Scene3D = () => {
                 element.appendChild(details);
 
                 const objectCSS = new CSS3DObject(element);
-                objectCSS.position.x = Math.random() * 4000 - 2000;
-                objectCSS.position.y = Math.random() * 4000 - 2000;
-                objectCSS.position.z = Math.random() * 4000 - 2000;
-                scene.add(objectCSS);
 
+                const phi = Math.acos(-1 + (2 * (i / 5)) / (table.length / 5));
+                const theta = Math.sqrt((table.length / 5) * Math.PI) * phi;
+                objectCSS.position.setFromSphericalCoords(800, phi, theta);
+
+                vector.copy(objectCSS.position).multiplyScalar(2);
+                objectCSS.lookAt(vector);
+
+                scene.add(objectCSS);
                 objects.push(objectCSS);
             }
 
-            const vector = new THREE.Vector3();
-
-            for (let i = 0, l = objects.length; i < l; i++) {
-                const phi = Math.acos(-1 + (2 * i) / l);
-                const theta = Math.sqrt(l * Math.PI) * phi;
-
-                const object = new THREE.Object3D();
-                object.position.setFromSphericalCoords(800, phi, theta);
-
-                vector.copy(object.position).multiplyScalar(2);
-                object.lookAt(vector);
-
-                targets.sphere.push(object);
-            }
-
             renderer = new CSS3DRenderer();
-            renderer.setSize(container.clientWidth, container.clientHeight);  //taille du conteneur
+            renderer.setSize(container.clientWidth, container.clientHeight); // Taille du conteneur
             container.appendChild(renderer.domElement);
 
             controls = new TrackballControls(camera, renderer.domElement);
@@ -117,44 +101,9 @@ const Scene3D = () => {
             controls.noZoom = true;
             controls.addEventListener('change', render);
 
-            transform(targets.sphere, 2000);
-
             window.addEventListener('resize', onWindowResize);
         }
-        // fin init
 
-        function transform(targets, duration) {
-            TWEEN.removeAll();
-            for (let i = 0; i < objects.length; i++) {
-                const object = objects[i];
-                const target = targets[i];
-
-                new TWEEN.Tween(object.position)
-                    .to({
-                        x: target.position.x,
-                        y: target.position.y,
-                        z: target.position.z
-                    }, Math.random() * duration + duration)
-                    .easing(TWEEN.Easing.Exponential.InOut)
-                    .start();
-
-                new TWEEN.Tween(object.rotation)
-                    .to({
-                        x: target.rotation.x,
-                        y: target.rotation.y,
-                        z: target.rotation.z
-                    }, Math.random() * duration + duration)
-                    .easing(TWEEN.Easing.Exponential.InOut)
-                    .start();
-            }
-
-            new TWEEN.Tween(this)
-                .to({}, duration * 2)
-                .onUpdate(render)
-                .start();
-        }
-        // fin transform
-        
         function onWindowResize() {
             camera.aspect = container.clientWidth / container.clientHeight;
             camera.updateProjectionMatrix();
@@ -162,10 +111,8 @@ const Scene3D = () => {
             render();
         }
 
-        // Gestion du mouvement de la sphère
         function animate() {
             requestAnimationFrame(animate);
-            TWEEN.update();
             controls.update();
             scene.rotation.y += 0.002;
             render();
@@ -174,15 +121,13 @@ const Scene3D = () => {
         function render() {
             renderer.render(scene, camera);
         }
-
-        // enlever le premier div qui a causé une duplication
-        const problem = document.querySelector('.sphere-content div div:first-of-type');
-        if(problem){
-            problem.style.display = 'none';
-        }
+        // enlever le premier div qui a causé une duplication du rendu mais ceci n'est pas recommandé pour la version build
+        // const problem = document.querySelector('.sphere-content div div:first-of-type');
+        // if (problem) {
+        //     problem.style.display = 'none';
+        // }
     }, []);
 
-    // return <div ref={containerRef} style={{ width: '100%', height: '100%' } }></div>;
     return <div ref={containerRef} className='rendu-content'></div>;
 };
 

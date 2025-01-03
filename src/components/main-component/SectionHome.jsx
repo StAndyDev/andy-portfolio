@@ -1,8 +1,6 @@
 import image_andy from '../../assets/images/ANDY-NO_BACKGROUND.png';
 import ButtonDefault from "../button-component/ButtonDefault";
-import React, { useEffect, useRef } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import React, { useRef } from 'react';
 import Typewriter from 'typewriter-effect';
 
 const AnimatedText = () => (
@@ -18,9 +16,6 @@ const AnimatedText = () => (
 
 export default function SectionHome() {
     const containerRef = useRef(null);
-    useEffect(() => {
-        Aos.init();
-    },[]);
     return (
         <section ref={containerRef} className="home section" id="home">
             <div className="container">

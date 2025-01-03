@@ -35,7 +35,7 @@ const Carousel = () => {
                 //     disableOnInteraction: false,
                 // }}
                 autoplay={true}
-                loop={true}
+                loop={projectList[index].image.length > 1}
                 className="mySwiper"
             >
                 {projectList[index].image.map((sary, i) => (
@@ -211,24 +211,24 @@ export default function PortfolioDetailsPage() {
                 <div>
                     <SectionTitle sectionTitle="Details Projet" />
                 </div>
-                <div className='title-content' data-aos="fade-right">
+                <div className='title-content portfolio-details-title_animation'>
                     <span className='second-title'>type : {projectList[index].workType} | projectID : {projectList[index].id}</span>
                     <span className='first-title'>{projectList[index].workTitle} <span className='first-subtitle'>({projectList[index].workSubtitle})</span></span>
                 </div>
                 <div className="row project-details">
                     {/* slide */}
-                    <div className='carousel-conteneur' data-aos="fade-right">
+                    <div className='carousel-conteneur portfolio-details-carousel_animation'>
                         <Carousel />
                     </div>
                     {/* details */}
                     <div className='details-conteneur'>
                         <div className="work_techno">
                             {projectList[index].listeTechno.map((techno, i) => (
-                                <span key={i} className="techno_item">{techno}</span>
+                                <span key={i} className="techno_item portfolio-details-others_animation">{techno}</span>
                             ))
                             }
                         </div>
-                        <p className='work_text'>{projectList[index].text}</p>
+                        <p className='work_text portfolio-details-others_animation'>{projectList[index].text}</p>
                         {/* ---- NATURE DE PROJET ----
                                 Stage
                                 Projet personnel
@@ -242,50 +242,50 @@ export default function PortfolioDetailsPage() {
                                 Projet communautaire 
                             */}
                         <ul className='details_list'>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-buildings"></i>
                                 <li>version :</li>
                                 {(projectList[index].details[0].version).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non spécifiée</p> </>) : <p>{(projectList[index].details[0].version)}</p>}
                             </div>
 
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-briefcase"></i>
                                 <li>nature :</li>
                                 {(projectList[index].details[0].nature).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non définie</p> </>) : <p>{(projectList[index].details[0].nature)}</p>}
                             </div>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-calendar"></i>
                                 <li>date :</li>
                                 {(projectList[index].details[0].date).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non renseignée</p> </>) : <p>{(projectList[index].details[0].date)}</p>}
                             </div>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-time-five"></i>
                                 <li>durée :</li>
                                 {(projectList[index].details[0].duree).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non précisée</p> </>) : <p>{(projectList[index].details[0].duree)}</p>}
                             </div>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-note"></i>
                                 <li>évaluation :</li>
                                 {(projectList[index].details[0].evaluation).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>non disponible</p> </>) : <p>{(projectList[index].details[0].evaluation)}</p>}
                             </div>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-link"></i>
                                 <li>référence :</li>
                                 {(projectList[index].details[0].reference).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>aucune référence fournie</p> </>) : <p>{(projectList[index].details[0].reference)}</p>}
                             </div>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bx-star"></i>
                                 <li>acquis :</li>
                                 {(projectList[index].details[0].acquis).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>aucun acquis mentionné</p> </>) : <p>{(projectList[index].details[0].acquis)}</p>}
                             </div>
-                            <div className='details_item'>
+                            <div className='details_item portfolio-details-others_animation'>
                                 <i className="bx bxs-bookmark-star"></i>
                                 <li>remarques :</li>
                                 {(projectList[index].details[0].remarques).trim() === "" ? (<> <i className='icon-empty bx bx-error-circle'></i><p>aucune remarque ajoutée</p> </>) : <p>{(projectList[index].details[0].remarques)}</p>}
                             </div>
                         </ul>
                         {/* btn */}
-                        <div className="btn_to_github_conteneur">
+                        <div className="btn_to_github_conteneur portfolio-details-others_animation">
                             <a href={(projectList[index].details[0].github).trim() === "" ? "" : (projectList[index].details[0].github)} className="btn_link_to_github">
                                 <i className='bx bxl-github' style={{ fontSize: '24px' }}></i>
                                 <p>voir sur github</p>

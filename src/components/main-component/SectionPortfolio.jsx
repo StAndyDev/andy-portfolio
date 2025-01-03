@@ -1,7 +1,6 @@
 import SectionTitle from "./SectionTitle";
 import React, { useEffect, useRef } from 'react';
 import mixitup from "mixitup";  // nous avons utilisés mixitup pour manupiler les dom avec animation
-import AOS from 'aos';  // c juste pour le callbacks
 import PortfolioCard from "./PortfolioCard";
 
 import ImagePortfolio_1 from '../../assets/images/Annotation 2024-11-26 220135.png';
@@ -293,12 +292,6 @@ export default function SectionPortfolio() {
             },
             animation: {
                 duration: 300
-            },
-            callbacks: {
-                onMixEnd: function () {
-                    AOS.refresh();  // Réinitialiser AOS après le filtrage
-                },
-
             }
 
         });
@@ -325,7 +318,7 @@ export default function SectionPortfolio() {
                 <SectionTitle sectionTitle="Portfolio" />
                 <div className="row">
                     {/* menu */}
-                    <div className="work_filters" data-aos="zoom-in-up" data-aos-duration="500" data-aos-offset="100">
+                    <div className="work_filters">
                         <span className="work_item active-work" data-filter="all">Tout</span>
                         <span className="work_item" data-filter=".web">Web</span>
                         <span className="work_item" data-filter=".desktop">Desktop</span>
